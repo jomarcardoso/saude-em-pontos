@@ -1,4 +1,4 @@
-package feevale.SaudeEmPontos.entidades;
+package feevale.SaudeEmPontos.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
