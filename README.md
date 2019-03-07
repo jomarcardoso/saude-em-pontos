@@ -6,3 +6,6 @@ Esta é uma atividade do curso de Sistemas de Informação da Feevale 2019/1.
 
 https://app.sqldbm.com/MySQL/Edit/p57350/
 
+## Chupinhado
+
+https://github.com/gabrielRosa/estudo-spring
