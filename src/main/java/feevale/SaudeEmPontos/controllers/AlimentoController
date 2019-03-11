@@ -1,11 +1,29 @@
 package feevale.SaudeEmPontos.controllers;
 
+import feevale.SaudeEmPontos.dto.AlimentoDTO;
+import feevale.SaudeEmPontos.entity.Alimento;
+import feevale.SaudeEmPontos.service.AlimentoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value="/alimento")
 public class AlimentoController {
 
+    @Autowired
+    private AlimentoService alimentoService;
 
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<AlimentoDTO>> find() {
+        List<Alimento> alimentoList = alimentoService.findAll();
+        List<AlimentoDTO> categoryDTOS = alimentoList.stream().map(cl -> new AlimentoDTO(cl)).collect(Collectors.toList());
+
+        return ResponseEntity.ok().body(categoryDTOS);
+    }
 }

@@ -1,11 +1,16 @@
 package feevale.SaudeEmPontos.entity;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 
+@Getter @Setter
 @Entity
 public class Alimento implements Serializable {
 
@@ -34,54 +39,6 @@ public class Alimento implements Serializable {
         this.quantidade = quantidade;
         this.calorias = calorias;
         this.indiceGlicemico = indiceGlicemico;
-        this.ph = ph;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Double getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(Double quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public Double getCalorias() {
-        return calorias;
-    }
-
-    public void setCalorias(Double calorias) {
-        this.calorias = calorias;
-    }
-
-    public Double getIndiceGlicemico() {
-        return indiceGlicemico;
-    }
-
-    public void setIndiceGlicemico(Double indiceGlicemico) {
-        this.indiceGlicemico = indiceGlicemico;
-    }
-
-    public Double getPh() {
-        return ph;
-    }
-
-    public void setPh(Double ph) {
         this.ph = ph;
     }
 }
