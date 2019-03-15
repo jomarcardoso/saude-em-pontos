@@ -1,7 +1,7 @@
-package feevale.SaudeEmPontos.service;
+package feevale.saude.service;
 
-import feevale.SaudeEmPontos.entity.Alimento;
-import feevale.SaudeEmPontos.repository.AlimentoRepository;
+import feevale.saude.entity.Alimento;
+import feevale.saude.repository.AlimentoRepository;
 import org.hibernate.ObjectDeletedException;
 import org.hibernate.ObjectNotFoundException;
 import org.slf4j.Logger;

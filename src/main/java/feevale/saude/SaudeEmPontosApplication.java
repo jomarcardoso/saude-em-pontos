@@ -1,4 +1,4 @@
-package feevale.SaudeEmPontos;
+package feevale.saude;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

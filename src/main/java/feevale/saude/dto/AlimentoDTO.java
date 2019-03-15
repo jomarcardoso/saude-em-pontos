@@ -1,6 +1,6 @@
-package feevale.SaudeEmPontos.dto;
+package feevale.saude.dto;
 
-import feevale.SaudeEmPontos.entity.Alimento;
+import feevale.saude.entity.Alimento;
 import lombok.Data;
 
 import java.io.Serializable;

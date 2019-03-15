@@ -1,4 +1,4 @@
-package feevale.SaudeEmPontos.entity;
+package feevale.saude.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

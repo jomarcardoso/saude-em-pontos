@@ -1,6 +1,6 @@
-package feevale.SaudeEmPontos.repository;
+package feevale.saude.repository;
 
-import feevale.SaudeEmPontos.entity.Alimento;
+import feevale.saude.entity.Alimento;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

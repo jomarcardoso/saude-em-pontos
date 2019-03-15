@@ -1,4 +1,4 @@
-package feevale.SaudeEmPontos.entity;
+package feevale.saude.entity;
 
 import lombok.Data;
 import lombok.Getter;
