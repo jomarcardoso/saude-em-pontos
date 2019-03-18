@@ -1,0 +1,21 @@
+$success:       #17772F;
+$primary:       #E4C943;
+$secondary:     #D7A938;
+$info:          #37373A;
+$warning:       #E4C943;
+$danger:        #D7A938;
+$light:         white;
+$dark:          black;
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+body {
+  font-size: 110%;
+  min-height: 100vh;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+main {
+  padding: 20px 0;
+}
+

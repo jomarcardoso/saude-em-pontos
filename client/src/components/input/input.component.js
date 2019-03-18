@@ -1,14 +1,15 @@
 import React from 'react';
+import { Label, FormGroup } from 'reactstrap';
 
 export default function (props) {
   return (
-    <div className="form-group row" key>
-      <label className="col-form-label col-12 col-sm-2" forhtml={props.input.id}>
+    <FormGroup className="form-group row">
+      <Label className="col-form-label col-12 col-sm-2" htmlFor={props.children.props.id}>
         {props.label}
-      </label>
+      </Label>
       <div className="col-12 col-sm-10 d-flex align-items-center">
-        {props.input}
+        {props.children}
       </div>
-    </div>
+    </FormGroup>
   )
 }
