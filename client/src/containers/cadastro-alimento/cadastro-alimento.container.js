@@ -5,12 +5,15 @@ import { api } from '../../config/contants';
 
 export default function CadastroAlimento() {
   function send(data) {
-    // const headers = new Headers();
-    const init = {
-      method: 'POST'
-    }
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
 
-    fetch(`${api}/alimento`, { method: 'POST' })
+    fetch(`${api}/alimento`, {
+      // mode: 'cors',
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers
+    })
       .then((response) => {
         response.json()
           .then(body => {

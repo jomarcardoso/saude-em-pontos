@@ -12,6 +12,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/alimento")
 public class AlimentoController {
@@ -19,12 +20,18 @@ public class AlimentoController {
     @Autowired
     private AlimentoService alimentoService;
 
+//    @CrossOrigin(origins = "http://localhost:3000")
+//    @RequestMapping(method = RequestMethod.OPTIONS)
+//    public ResponseEntity<Void> options() {
+//        return ResponseEntity.noContent().build();
+//    }
+
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<AlimentoDTO>> find() {
         List<Alimento> alimentoList = alimentoService.findAll();
-        List<AlimentoDTO> categoryDTOS = alimentoList.stream().map(cl -> new AlimentoDTO(cl)).collect(Collectors.toList());
+        List<AlimentoDTO> alimentoDTOS = alimentoList.stream().map(cl -> new AlimentoDTO(cl)).collect(Collectors.toList());
 
-        return ResponseEntity.ok().body(categoryDTOS);
+        return ResponseEntity.ok().body(alimentoDTOS);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -34,6 +41,7 @@ public class AlimentoController {
         return ResponseEntity.ok().body(category);
     }
 
+//    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Void> insert(@RequestBody Alimento category) {
         category = alimentoService.insert(category);

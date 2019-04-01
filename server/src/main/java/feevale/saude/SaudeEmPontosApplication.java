@@ -10,4 +10,5 @@ public class SaudeEmPontosApplication {
 		SpringApplication.run(SaudeEmPontosApplication.class, args);
 	}
 
+
 }

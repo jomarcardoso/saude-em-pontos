@@ -17,10 +17,10 @@ export default function FormAlimento({ onSend }) {
 
     const result = await onSend({
       nome,
-      quantidade,
-      calorias,
-      indiceGlicemico,
-      ph
+      quantidade: Number(quantidade),
+      calorias: Number(calorias),
+      indiceGlicemico: Number(indiceGlicemico),
+      ph: Number(ph)
     })
 
     if (result.success) {
