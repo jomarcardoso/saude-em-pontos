@@ -1,11 +1,19 @@
 package feevale.saude.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Refeicao implements Serializable {
 
     private static final long serialVersionUID = -8580761754019166789L;
@@ -14,12 +22,12 @@ public class Refeicao implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name;
+    private String nome;
 
-    @ManyToMany
-    @JoinTable(
-        name="refeicao_alimento",
-        joinColumns={@JoinColumn(name="refeicao_id")},
-        inverseJoinColumns={@JoinColumn(name="alimento_id")})
-    private List<Alimento> alimentoEntidades = new ArrayList<>();
+    @OneToMany(mappedBy = "refeicao")
+    private List<RefeicaoAlimento> alimentosQuantidades = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "refeicao_id")
+    private Usuario usuario;
 }

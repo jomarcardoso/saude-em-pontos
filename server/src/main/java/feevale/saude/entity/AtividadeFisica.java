@@ -2,19 +2,15 @@ package feevale.saude.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Getter
 @Setter
 @Entity
 @NoArgsConstructor
-@RequiredArgsConstructor
 @AllArgsConstructor
-public class AtvividadeFisica implements Serializable {
+public class AtividadeFisica implements Serializable {
 
     private static final long serialVersionUID = -149222343768435772L;
 
@@ -23,8 +19,14 @@ public class AtvividadeFisica implements Serializable {
     private Integer id;
 
     private String nome;
+
     private Double gastoCalorico;
+
     private Double anaboloismo;
+
     private String descricao;
+
+    @ManyToOne
+    @JoinColumn(name = "tipo_atividade_fisica_id")
     private TipoAtividadeFisica tipo;
 }

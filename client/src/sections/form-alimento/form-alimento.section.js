@@ -7,7 +7,9 @@ export default function FormAlimento({ onSend }) {
   const [quantidade, setQuantidade] = useState(0);
   const [calorias, setCalorias] = useState(0);
   const [indiceGlicemico, setIndiceGlicemico] = useState(0);
-  const [ph, setPh] = useState(0);
+  const [acidificacao, setAcidificacao] = useState(0);
+  const [inflamatorio, setInflamatorio] = useState(0);
+  const [descricao, setDescricao] = useState(0);
 
   // const initialState = { nome, quantidade, calorias, indiceGlicemico, ph };
 
@@ -17,10 +19,11 @@ export default function FormAlimento({ onSend }) {
 
     const result = await onSend({
       nome,
-      quantidade: Number(quantidade),
       calorias: Number(calorias),
       indiceGlicemico: Number(indiceGlicemico),
-      ph: Number(ph)
+      acidificacao: Number(acidificacao),
+      inflamatorio: Number(inflamatorio),
+      descricao
     })
 
     if (result.success) {
@@ -38,21 +41,21 @@ export default function FormAlimento({ onSend }) {
           name="nome"
         />
       </SaInput>
-      <SaInput label="Quantidade">
-        <Input
-          id="quantidade"
-          onChange={e => setQuantidade(e.target.value)}
-          value={quantidade}
-          name="quantidade"
-          type="number"
-        />
-      </SaInput>
       <SaInput label="Calorias">
         <Input
           id="calorias"
           onChange={e => setCalorias(e.target.value)}
           value={calorias}
           name="calorias"
+          type="number"
+        />
+      </SaInput>
+      <SaInput label="Quantidade">
+        <Input
+          id="quantidade"
+          onChange={e => setQuantidade(e.target.value)}
+          value={quantidade}
+          name="quantidade"
           type="number"
         />
       </SaInput>
@@ -65,12 +68,30 @@ export default function FormAlimento({ onSend }) {
           type="number"
         />
       </SaInput>
-      <SaInput label="PH">
+      <SaInput label="Acidificação">
         <Input
-          id="ph"
-          onChange={e => setPh(e.target.value)}
-          value={ph}
-          name="ph"
+          id="acidificacao"
+          onChange={e => setAcidificacao(e.target.value)}
+          value={acidificacao}
+          name="acidificacao"
+          type="number"
+        />
+      </SaInput>
+      <SaInput label="Descrição">
+        <Input
+          id="descricao"
+          onChange={e => setDescricao(e.target.value)}
+          value={descricao}
+          name="descricao"
+          type="number"
+        />
+      </SaInput>
+      <SaInput label="Inflamatório">
+        <Input
+          id="inflamatorio"
+          onChange={e => setInflamatorio(e.target.value)}
+          value={inflamatorio}
+          name="inflamatorio"
           type="number"
         />
       </SaInput>
