@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
-import { Input, Form, Col } from 'reactstrap';
+import { Input, Form } from 'reactstrap';
 import { SaInput, SaSubmit } from '../../components';
 
-export default function FormAlimento({ onSend }) {
-  const [nome, setNome] = useState('');
-  const [quantidade, setQuantidade] = useState(0);
-  const [calorias, setCalorias] = useState(0);
-  const [indiceGlicemico, setIndiceGlicemico] = useState(0);
-  const [acidificacao, setAcidificacao] = useState(0);
-  const [inflamatorio, setInflamatorio] = useState(0);
-  const [descricao, setDescricao] = useState(0);
-
-  // const initialState = { nome, quantidade, calorias, indiceGlicemico, ph };
+export default function FormAlimento({
+  onSend,
+  nome,
+  calorias,
+  indiceGlicemico,
+  acidificacao,
+  inflamatorio,
+  descricao,
+  setNome,
+  setCalorias,
+  setIndiceGlicemico,
+  setAcidificacao,
+  setInflamatorio,
+  setDescricao
+}) {
 
   async function submit(e) {
     e.preventDefault();
@@ -47,15 +52,6 @@ export default function FormAlimento({ onSend }) {
           onChange={e => setCalorias(e.target.value)}
           value={calorias}
           name="calorias"
-          type="number"
-        />
-      </SaInput>
-      <SaInput label="Quantidade">
-        <Input
-          id="quantidade"
-          onChange={e => setQuantidade(e.target.value)}
-          value={quantidade}
-          name="quantidade"
           type="number"
         />
       </SaInput>
