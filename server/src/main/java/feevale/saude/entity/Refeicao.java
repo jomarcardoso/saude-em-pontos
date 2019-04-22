@@ -4,10 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @Setter
@@ -30,4 +27,6 @@ public class Refeicao implements Serializable {
     @ManyToOne
     @JoinColumn(name = "refeicao_id")
     private Usuario usuario;
+
+    private Date horario;
 }

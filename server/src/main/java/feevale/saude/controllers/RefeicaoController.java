@@ -1,8 +1,8 @@
 package feevale.saude.controllers;
 
-import feevale.saude.dto.AlimentoDTO;
-import feevale.saude.entity.Alimento;
-import feevale.saude.service.AlimentoService;
+import feevale.saude.dto.RefeicaoDTO;
+import feevale.saude.entity.Refeicao;
+import feevale.saude.service.RefeicaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,31 +14,31 @@ import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/alimento")
-public class AlimentoController {
+@RequestMapping("/refeicao")
+public class RefeicaoController {
 
     @Autowired
-    private AlimentoService alimentoService;
+    private RefeicaoService refeicaoService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<AlimentoDTO>> find() {
-        List<Alimento> alimentoList = alimentoService.findAll();
-        List<AlimentoDTO> alimentoDTOS = alimentoList.stream().map(cl -> new AlimentoDTO(cl)).collect(Collectors.toList());
+    public ResponseEntity<List<RefeicaoDTO>> find() {
+        List<Refeicao> refeicaoList = refeicaoService.findAll();
+        List<RefeicaoDTO> refeicaoDTOS = refeicaoList.stream().map(cl -> new RefeicaoDTO(cl)).collect(Collectors.toList());
 
-        return ResponseEntity.ok().body(alimentoDTOS);
+        return ResponseEntity.ok().body(refeicaoDTOS);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Alimento> find(@PathVariable final Integer id) {
-        Alimento category = alimentoService.find(id);
+    public ResponseEntity<Refeicao> find(@PathVariable final Integer id) {
+        Refeicao category = refeicaoService.find(id);
 
         return ResponseEntity.ok().body(category);
     }
 
-//    @CrossOrigin(origins = "http://localhost:3000")
+    //    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> insert(@RequestBody Alimento category) {
-        category = alimentoService.insert(category);
+    public ResponseEntity<Void> insert(@RequestBody Refeicao category) {
+        category = refeicaoService.insert(category);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(category.getId()).toUri();
 
@@ -46,16 +46,16 @@ public class AlimentoController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Void> update(@RequestBody Alimento alimento, @PathVariable Integer id) {
-        alimento.setId(id);
-        alimentoService.update(alimento);
+    public ResponseEntity<Void> update(@RequestBody Refeicao refeicao, @PathVariable Integer id) {
+        refeicao.setId(id);
+        refeicaoService.update(refeicao);
 
         return ResponseEntity.noContent().build();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> delete(@PathVariable final Integer id) {
-        alimentoService.delete(id);
+        refeicaoService.delete(id);
 
         return ResponseEntity.noContent().build();
     }
