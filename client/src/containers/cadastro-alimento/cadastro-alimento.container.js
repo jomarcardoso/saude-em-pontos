@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container } from 'reactstrap';
 import FormAlimento from './form-alimento.section';
 import TableAlimento from './table-alimento.section';
 import { api } from '../../config/contants';
+import HOCCadastro from '../hoc-cadastro';
 
-export default function CadastroAlimento() {
+function CadastroAlimento({ table }) {
   const [nome, setNome] = useState('');
   const [calorias, setCalorias] = useState(0);
   const [indiceGlicemico, setIndiceGlicemico] = useState(0);
   const [acidificacao, setAcidificacao] = useState(0);
   const [inflamatorio, setInflamatorio] = useState(0);
   const [descricao, setDescricao] = useState(0);
-  const [table, setTable] = useState([]);
-  const [ mounted, setMounted ] = useState(false)
 
   function send(data) {
     const headers = new Headers();
@@ -35,30 +34,6 @@ export default function CadastroAlimento() {
 
     console.log(data)
     return {};
-  }
-
-  function getTable() {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
-    fetch(`${api}/alimento`, {
-      method: 'GET',
-      headers
-    })
-      .then((response) => {
-        response.json()
-          .then(body => {
-            if(body) setTable(body)
-          })
-          .catch(response => {
-            console.error(response);
-          });
-      })
-  }
-
-  if (!mounted) {
-    setMounted(true);
-    getTable();
   }
 
   return (
@@ -87,3 +62,5 @@ export default function CadastroAlimento() {
     </main>
   )
 }
+
+export default HOCCadastro(CadastroAlimento)
