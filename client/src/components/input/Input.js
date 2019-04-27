@@ -76,7 +76,7 @@ export default function SaInput({
   function _validate() {
     const { required, value } = props;
 
-    if (typeof value === 'undefined') return;
+    if (typeof value === 'undefined' || value === null) return;
 
     const empty = isStringEmpty(value.trim());
 
@@ -120,11 +120,13 @@ export default function SaInput({
 }
 
 SaInput.propTypes = {
+  value: PropTypes.string,
   type: PropTypes.string,
   invalidMessage: PropTypes.string
 };
 
 SaInput.defaultProps = {
+  value: '',
   type: 'text',
   invalidMessage: ''
 };

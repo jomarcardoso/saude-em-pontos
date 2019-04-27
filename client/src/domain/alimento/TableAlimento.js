@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'reactstrap';
 
-export default function TableAlimento({ onEdit, list = [], ...props }) {
+export default function TableAlimento({ onDelete, onEdit, list = [], ...props }) {
   return (
     <Table>
       <thead>
@@ -13,12 +13,12 @@ export default function TableAlimento({ onEdit, list = [], ...props }) {
       </thead>
       <tbody>
         {list.map((item) => (
-          <tr>
+          <tr key={item.id}>
             <td>{item.nome}</td>
             <td>{item.calorias}</td>
             <td>
               <span onClick={() => onEdit(item)}>editar</span>
-              <span> excluir</span>
+              <span onClick={() => onDelete(item.id)}> excluir</span>
             </td>
           </tr>
         ))}

@@ -16,10 +16,9 @@ function FormAlimento({ setData, initialData, onSubmit, gets, sets, errors, visi
   }
 
   useEffect(() => {
-    console.log(initialData);
     if (initialData !== _initialData) {
       setInitialData(initialData);
-      setData(initialData);
+      setData({...initialData});
     }
   });
 

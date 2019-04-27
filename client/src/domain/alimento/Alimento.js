@@ -11,10 +11,12 @@ export default function Alimento() {
 
   function send(data) {
     const headers = new Headers();
+    const method = Object.entries(form).length > 0 ? 'PUT' : 'POST';
+    const { id } = data;
     headers.append('Content-Type', 'application/json');
 
-    fetch(`${api}/alimento`, {
-      method: 'POST',
+    fetch(`${api}/alimento${id ? `/${id}` : ''}`, {
+      method,
       body: JSON.stringify(data),
       headers
     })
@@ -31,7 +33,14 @@ export default function Alimento() {
   }
 
   function handleEdit(data) {
-    setForm(data);
+    setForm({...data});
+  }
+
+  function handleDelete(id) {
+    axios.delete(`${api}/alimento/${id}`)
+    .then(res => {
+      console.log(res.data)
+    })
   }
 
   useEffect(() => {
@@ -50,6 +59,7 @@ export default function Alimento() {
       />
       <TableAlimento
         onEdit={handleEdit}
+        onDelete={handleDelete}
         list={table}
       />
     </>
