@@ -7,6 +7,8 @@ import axios from 'axios';
 
 export default function Alimento() {
   const [ table, setTable ] = useState([]);
+  const [ form, setForm ] = useState({});
+
   function send(data) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -25,15 +27,16 @@ export default function Alimento() {
             console.error(response);
           });
       })
-
-    console.log(data)
     return {};
+  }
+
+  function handleEdit(data) {
+    setForm(data);
   }
 
   useEffect(() => {
     axios.get(`${api}/alimento`)
     .then(res => {
-      console.log(res.data)
       setTable(res.data)
     })
   }, []);
@@ -41,8 +44,12 @@ export default function Alimento() {
   return (
     <>
       <h3>Cadastro de Alimento</h3>
-      <FormAlimento send={send}/>
+      <FormAlimento
+        send={send}
+        initialData={form}
+      />
       <TableAlimento
+        onEdit={handleEdit}
         list={table}
       />
     </>

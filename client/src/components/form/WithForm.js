@@ -89,7 +89,7 @@ export default function WithForm(WrappedComponent, initialData) {
       this.setState({ submittingForm });
     }
 
-    _handleData(data) {
+    _handleData = (data) => {
       this.setState({ data });
     }
 
@@ -131,6 +131,7 @@ export default function WithForm(WrappedComponent, initialData) {
           onSubmit={this._handleSubmit}
           setAnError={this._setAnError}
           setAShowError={this._setAShowError}
+          setData={this._handleData}
           gets={this._gets}
           sets={this.sets}
           {...this.props}

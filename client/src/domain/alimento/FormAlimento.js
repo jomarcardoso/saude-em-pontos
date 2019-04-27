@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import { Form } from 'reactstrap';
 
 import WithForm from '../../components/form/WithForm';
@@ -7,11 +7,21 @@ import SaFormGroup from '../../components/sa-formgroup/SaFormgroup';
 import { InputNumber } from '../../components';
 import Submit from '../../components/submit/submit.component';
 
-function FormAlimento({ onSubmit, gets, sets, errors, visibleErrors }) {
+function FormAlimento({ setData, initialData, onSubmit, gets, sets, errors, visibleErrors, send }) {
+  const [_initialData, setInitialData] = useState({});
+
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit().then(result => console.log('then', result)).catch(result => console.log('catch', result));
+    onSubmit().then(send).catch(result => console.log('catch', result));
   }
+
+  useEffect(() => {
+    console.log(initialData);
+    if (initialData !== _initialData) {
+      setInitialData(initialData);
+      setData(initialData);
+    }
+  });
 
   return (
     <Form onSubmit={handleSubmit} noValidate>

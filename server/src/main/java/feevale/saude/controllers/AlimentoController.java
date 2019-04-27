@@ -21,11 +21,12 @@ public class AlimentoController {
     private AlimentoService alimentoService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<AlimentoDTO>> find() {
+    public ResponseEntity<List<Alimento>> find() {
         List<Alimento> alimentoList = alimentoService.findAll();
         List<AlimentoDTO> alimentoDTOS = alimentoList.stream().map(cl -> new AlimentoDTO(cl)).collect(Collectors.toList());
 
-        return ResponseEntity.ok().body(alimentoDTOS);
+//        return ResponseEntity.ok().body(alimentoDTOS);
+        return ResponseEntity.ok().body(alimentoList);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
