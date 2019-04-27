@@ -11,25 +11,34 @@ export default function Alimento() {
 
   function send(data) {
     const headers = new Headers();
-    const method = Object.entries(form).length > 0 ? 'PUT' : 'POST';
+    const method = Object.entries(form).length > 0 ? 'put' : 'post';
     const { id } = data;
     headers.append('Content-Type', 'application/json');
 
-    fetch(`${api}/alimento${id ? `/${id}` : ''}`, {
-      method,
-      body: JSON.stringify(data),
-      headers
+    axios[method](`${api}/alimento${id ? `/${id}` : ''}`, data)
+    .then(res => {
+      updateTable();
+      setForm({})
     })
-      .then((response) => {
-        response.json()
-          .then(body => {
-            if(body) console.log(body)
-          })
-          .catch(response => {
-            console.error(response);
-          });
-      })
-    return {};
+
+    // fetch(`${api}/alimento${id ? `/${id}` : ''}`, {
+    //   method,
+    //   body: JSON.stringify(data),
+    //   headers
+    // })
+    //   .then((response) => {
+    //     response.json()
+    //       .then(body => {
+    //         if(body) {
+    //           updateTable();
+    //           console.log(body)
+    //         }
+    //       })
+    //       .catch(response => {
+    //         console.error(response);
+    //       });
+    //   })
+    // return {};
   }
 
   function handleEdit(data) {
@@ -39,15 +48,19 @@ export default function Alimento() {
   function handleDelete(id) {
     axios.delete(`${api}/alimento/${id}`)
     .then(res => {
-      console.log(res.data)
+      updateTable();
     })
   }
 
-  useEffect(() => {
+  function updateTable() {
     axios.get(`${api}/alimento`)
     .then(res => {
       setTable(res.data)
     })
+  }
+
+  useEffect(() => {
+    updateTable();
   }, []);
 
   return (
