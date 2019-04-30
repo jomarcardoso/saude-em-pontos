@@ -3,7 +3,7 @@ import { Table } from 'reactstrap';
 
 export default function TableAlimento({ onDelete, onEdit, list = [], ...props }) {
   return (
-    <Table>
+    <Table hover size="sm">
       <thead>
         <tr>
           <th>Nome</th>

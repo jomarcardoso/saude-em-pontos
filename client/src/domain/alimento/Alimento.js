@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'reactstrap';
 import { api } from '../../config/contants';
 import FormAlimento from './FormAlimento';
 import TableAlimento from './TableAlimento';
@@ -19,26 +18,7 @@ export default function Alimento() {
     .then(res => {
       updateTable();
       setForm({})
-    })
-
-    // fetch(`${api}/alimento${id ? `/${id}` : ''}`, {
-    //   method,
-    //   body: JSON.stringify(data),
-    //   headers
-    // })
-    //   .then((response) => {
-    //     response.json()
-    //       .then(body => {
-    //         if(body) {
-    //           updateTable();
-    //           console.log(body)
-    //         }
-    //       })
-    //       .catch(response => {
-    //         console.error(response);
-    //       });
-    //   })
-    // return {};
+    });
   }
 
   function handleEdit(data) {

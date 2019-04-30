@@ -1,11 +1,17 @@
-$success:       #17772F;
-$primary:       #E4C943;
-$secondary:     #D7A938;
-$info:          #37373A;
-$warning:       #E4C943;
-$danger:        #D7A938;
-$light:         white;
-$dark:          black;
+$color-1: #ED6A5A;
+$color-2: #F4F1BB;
+$color-3: #9BC1BC;
+$color-4: #5CA4A9;
+$color-5: #E6EBE0;
+
+// $success:       #17772F;
+$primary:       $color-3;
+$secondary:     $color-1;
+// $info:          #37373A;
+$warning:       $color-1;
+$danger:        $color-1;
+$light:         lighten($color-5, 15%);
+// $dark:          black;
 
 @import '~bootstrap/scss/bootstrap.scss';
 
@@ -13,6 +19,7 @@ body {
   font-size: 110%;
   min-height: 100vh;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: $light;
 }
 
 main {
@@ -34,4 +41,10 @@ main {
 
 .form-group {
   margin-bottom: .125rem;
+}
+
+svg {
+  width: 100%;
+  fill: $secondary;
+  stroke: $secondary;
 }

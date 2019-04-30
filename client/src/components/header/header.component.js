@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Header(props) {
   return (
-    <header className="Header bg-success text-light">
+    <header className="Header navbar navbar-dark bg-dark box-shadow">
       <Container>
         <h2>
           <Link to="/">
