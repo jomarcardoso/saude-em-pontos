@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 // import { CadastroAlimento } from './containers';
 import { SaHeader } from './components';
 import { Alimento, Menu } from './domain';
+import TipoAtividadeFisica from './domain/tipo-atividade-fisica/TipoAtividadeFisica';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
             <div className="container">
               <Route path="/" exact={true} component={Menu} />
               <Route path="/alimento" component={Alimento} />
+              <Route path="/tipo-atividade-fisica" component={TipoAtividadeFisica} />
             </div>
           </main>
         </div>

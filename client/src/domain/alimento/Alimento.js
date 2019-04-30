@@ -1,48 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { api } from '../../config/contants';
+import React from 'react';
 import FormAlimento from './FormAlimento';
 import TableAlimento from './TableAlimento';
-import axios from 'axios';
+import WithDomain from '../../components/with-domain/WithDomain';
 
-export default function Alimento() {
-  const [ table, setTable ] = useState([]);
-  const [ form, setForm ] = useState({});
-
-  function send(data) {
-    const headers = new Headers();
-    const method = Object.entries(form).length > 0 ? 'put' : 'post';
-    const { id } = data;
-    headers.append('Content-Type', 'application/json');
-
-    axios[method](`${api}/alimento${id ? `/${id}` : ''}`, data)
-    .then(res => {
-      updateTable();
-      setForm({})
-    });
-  }
-
-  function handleEdit(data) {
-    setForm({...data});
-  }
-
-  function handleDelete(id) {
-    axios.delete(`${api}/alimento/${id}`)
-    .then(res => {
-      updateTable();
-    })
-  }
-
-  function updateTable() {
-    axios.get(`${api}/alimento`)
-    .then(res => {
-      setTable(res.data)
-    })
-  }
-
-  useEffect(() => {
-    updateTable();
-  }, []);
-
+function Alimento({ send, form, handleEdit, handleDelete, table }) {
   return (
     <>
       <h3>Cadastro de Alimento</h3>
@@ -58,3 +19,5 @@ export default function Alimento() {
     </>
   )
 }
+
+export default WithDomain(Alimento, 'alimento');

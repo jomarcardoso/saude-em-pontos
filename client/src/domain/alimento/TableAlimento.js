@@ -1,28 +1,12 @@
 import React from 'react';
-import { Table } from 'reactstrap';
+import TableDomain from '../../components/table-domain/TableDomain';
 
-export default function TableAlimento({ onDelete, onEdit, list = [], ...props }) {
+export default function TableAlimento({ list, ...props }) {
   return (
-    <Table hover size="sm">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Calorias</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {list.map((item) => (
-          <tr key={item.id}>
-            <td>{item.nome}</td>
-            <td>{item.calorias}</td>
-            <td>
-              <span onClick={() => onEdit(item)}>editar</span>
-              <span onClick={() => onDelete(item.id)}> excluir</span>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </Table>
+    <TableDomain
+      columns={['Nome', 'Calorias']}
+      list = {list.map(item => ({ column1: item.nome, column2: item.calorias, ...item }))}
+      {...props}
+    />
   )
 }
