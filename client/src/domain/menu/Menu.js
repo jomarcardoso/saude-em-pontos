@@ -12,32 +12,42 @@ export default function Menu() {
     <main>
       <Row>
         <Col xs="6" sm="4">
-          <Link to="/alimento" className="p-5 d-block">
-            <MeetIcon />
+          <Link to="/alimento" className="p-3 pb-4 d-block">
+            <div className="px-4 py-1">
+              <MeetIcon />
+            </div>
             <h4 className="text-dark text-center mt-2">Alimento</h4>
           </Link>
         </Col>
         <Col xs="6" sm="4">
-          <Link to="/refeicao" className="p-5 d-block">
-            <FoodIcon />
+          <Link to="/refeicao" className="p-3 pb-4 d-block">
+            <div className="px-4 py-1">
+              <FoodIcon />
+            </div>
             <h4 className="text-dark text-center mt-2">Refeição</h4>
           </Link>
         </Col>
         <Col xs="6" sm="4">
-          <Link to="/exercicio" className="p-5 d-block">
-            <ExerciseIcon />
+          <Link to="/exercicio" className="p-3 pb-4 d-block">
+            <div className="px-4 py-1">
+              <ExerciseIcon />
+            </div>
             <h4 className="text-dark text-center mt-2">Exercício</h4>
           </Link>
         </Col>
         <Col xs="6" sm="4">
-          <Link to="/atividade-fisica" className="p-5 d-block">
-            <ActivityIcon />
+          <Link to="/atividade-fisica" className="p-3 pb-4 d-block">
+            <div className="px-4 py-1">
+              <ActivityIcon />
+            </div>
             <h4 className="text-dark text-center mt-2">Atividade física</h4>
           </Link>
         </Col>
         <Col xs="6" sm="4">
-          <Link to="/tipo-atividade-fisica" className="p-5 d-block">
-            <TypeActivityIcon />
+          <Link to="/tipo-atividade-fisica" className="p-3 pb-4 d-block">
+            <div className="px-4 py-1">
+              <TypeActivityIcon />
+            </div>
             <h4 className="text-dark text-center mt-2">Tipo de atividade física</h4>
           </Link>
         </Col>
