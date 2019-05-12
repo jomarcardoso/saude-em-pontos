@@ -1,0 +1,18 @@
+{
+  "main.css": "/static/css/main.bbb6b904.chunk.css",
+  "main.js": "/static/js/main.446e484f.chunk.js",
+  "main.js.map": "/static/js/main.446e484f.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.c5541365.js",
+  "runtime~main.js.map": "/static/js/runtime~main.c5541365.js.map",
+  "static/js/2.89756c05.chunk.js": "/static/js/2.89756c05.chunk.js",
+  "static/js/2.89756c05.chunk.js.map": "/static/js/2.89756c05.chunk.js.map",
+  "index.html": "/index.html",
+  "precache-manifest.a3fcdf6a7c9c159ee5e1c935e47f169f.js": "/precache-manifest.a3fcdf6a7c9c159ee5e1c935e47f169f.js",
+  "service-worker.js": "/service-worker.js",
+  "static/css/main.bbb6b904.chunk.css.map": "/static/css/main.bbb6b904.chunk.css.map",
+  "static/media/alimento.08e65fc1.svg": "/static/media/alimento.08e65fc1.svg",
+  "static/media/atividade-fisica.71029fa7.svg": "/static/media/atividade-fisica.71029fa7.svg",
+  "static/media/exercicio.ed6accd8.svg": "/static/media/exercicio.ed6accd8.svg",
+  "static/media/refeicao.95f14d60.svg": "/static/media/refeicao.95f14d60.svg",
+  "static/media/tipo-atividade-fisica.e7f7da98.svg": "/static/media/tipo-atividade-fisica.e7f7da98.svg"
+}
