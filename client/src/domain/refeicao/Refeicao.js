@@ -1,41 +1,23 @@
-// import React from 'react';
-// import { Container } from 'reactstrap';
-// import { api } from '../../config/contants';
-// import FormAlimento from './FormAlimento';
+import React from 'react';
+import FormRefeicao from './FormRefeicao';
+import TableRefeicao from './TableRefeicao';
+import WithDomain from '../../components/with-domain/WithDomain';
 
-// export default function Alimento() {
-//   function send(data) {
-//     const headers = new Headers();
-//     headers.append('Content-Type', 'application/json');
+function Refeicao({ send, form, handleEdit, handleDelete, table }) {
+  return (
+    <>
+      <h3>Cadastro de Refeicao</h3>
+      <FormRefeicao
+        send={send}
+        initialData={form}
+      />
+      <TableRefeicao
+        onEdit={handleEdit}
+        onDelete={handleDelete}
+        list={table}
+      />
+    </>
+  )
+}
 
-//     fetch(`${api}/refeicao`, {
-//       method: 'POST',
-//       body: JSON.stringify(data),
-//       headers
-//     })
-//       .then((response) => {
-//         response.json()
-//           .then(body => {
-//             if(body) console.log(body)
-//           })
-//           .catch(response => {
-//             console.error(response);
-//           });
-//       })
-
-//     console.log(data)
-//     return {};
-//   }
-
-//   return (
-//     <main>
-//       <Container>
-//         <h3>Cadastro de Refeição</h3>
-//         <FormRefeição send={send}/>
-//         {/* <TableAlimento
-//           table={table}
-//         /> */}
-//       </Container>
-//     </main>
-//   )
-// }
+export default WithDomain(Refeicao, 'refeicao');

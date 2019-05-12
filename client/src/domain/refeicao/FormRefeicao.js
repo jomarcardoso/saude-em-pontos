@@ -4,10 +4,10 @@ import { Form } from 'reactstrap';
 import WithForm from '../../components/form/WithForm';
 import Input from '../../components/input/Input';
 import SaFormGroup from '../../components/sa-formgroup/SaFormgroup';
-import { InputNumber } from '../../components';
+import { InputNumber, Select } from '../../components';
 import Submit from '../../components/submit/submit.component';
 
-function FormAlimento({ setData, initialData, onSubmit, gets, sets, errors, visibleErrors, send }) {
+function FormRefeicao({ setData, initialData, onSubmit, gets, sets, errors, visibleErrors, send }) {
   const [_initialData, setInitialData] = useState({});
 
   function handleSubmit(e) {
@@ -24,6 +24,19 @@ function FormAlimento({ setData, initialData, onSubmit, gets, sets, errors, visi
 
   return (
     <Form onSubmit={handleSubmit} noValidate>
+    <SaFormGroup
+      error={errors.nome}
+      visibleError={visibleErrors.nome}
+      renderInput={props => <Select
+        className="form-control"
+        {...gets('a')}
+        {...sets}
+        options={[{ value: '1' }]}
+        required
+      />}
+    >
+      a
+    </SaFormGroup>
       <SaFormGroup
         error={errors.nome}
         visibleError={visibleErrors.nome}
@@ -71,7 +84,7 @@ function FormAlimento({ setData, initialData, onSubmit, gets, sets, errors, visi
   )
 }
 
-export default WithForm(FormAlimento, {
+export default WithForm(FormRefeicao, {
   nome: '',
   calorias: '',
   indiceGlicemico: '',
