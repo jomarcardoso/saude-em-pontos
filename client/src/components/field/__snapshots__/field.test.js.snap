@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Field /> render: props: className="" render={Input} 1`] = `
+<input
+  className=""
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  value=""
+/>
+`;
+
+exports[`<Field /> render: props: className="test" render={Input} 1`] = `
+<input
+  className="test"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  value=""
+/>
+`;
+
+exports[`<Field /> render: props: name="test" render={Input} 1`] = `
+<input
+  className="Input-test"
+  name="test"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  value=""
+/>
+`;
+
+exports[`<Field /> render: props: render={Input} 1`] = `
+<input
+  className="Input-test"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  value=""
+/>
+`;
+
+exports[`<Field /> render: props: render={Select} 1`] = `
+<select
+  className="Select-test"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  value=""
+/>
+`;
+
+exports[`<Field /> render: props: render={Select} className="test" 1`] = `
+<select
+  className="test"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  value=""
+/>
+`;
+
+exports[`<Field /> render: props: render={Select} value="test" 1`] = `
+<select
+  className="Select-test"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  value="test"
+/>
+`;
+
+exports[`<Field /> render: props: required render={Input} 1`] = `
+<input
+  className="Input-test"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  required={true}
+  value=""
+/>
+`;
+
+exports[`<Field /> render: props: type="test" render={Input} 1`] = `
+<input
+  className="Input-test"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  type="test"
+  value=""
+/>
+`;
+
+exports[`<Field /> render: props: value="" render={Input} 1`] = `
+<input
+  className="Input-test"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  value=""
+/>
+`;
+
+exports[`<Field /> render: props: value="test" render={Input} 1`] = `
+<input
+  className="Input-test"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  value="test"
+/>
+`;
