@@ -14,7 +14,6 @@ export default function MultiFieldItem({
   const value = values[index];
   const error = errors[index];
   const visibleError = visibleErrors[index];
-  // console.log(error)
 
   function setDataByName(name, newValue)  {
     let arrayValues = [...values];
@@ -32,9 +31,8 @@ export default function MultiFieldItem({
     let arrayShowErrors = [...visibleErrors];
     arrayShowErrors[index] = newShowError;
     setShowErrorsByName(name, arrayShowErrors);
-    console.log(name, arrayShowErrors)
   }
-
+debugger
   return render({
     visibleError,
     error,

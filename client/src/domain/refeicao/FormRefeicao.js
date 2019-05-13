@@ -40,62 +40,42 @@ function FormRefeicao({
       console.log(res.data)
       setAlimentos(res.data.map(({ id: value, nome: children }) => ({ value, children })));
     });
-  }, [])
+  }, []);
+
+  console.log(data)
+
+  const listAlimentos = data.alimentos || [''];
 
   return (
     <Form onSubmit={handleSubmit} noValidate>
-      <MultiFieldItem
-        index={0}
-        {...sets}
-        value={data.a}
-        error={errors.a}
-        visibleError={visibleErrors.a}
-        render={(restProps) => (
-          <SaFormGroup
-            error={restProps.error}
-            visibleError={restProps.visibleError}
-            renderInput={props => <Select
-              className="form-control"
-              // {...gets('a')}
-              // {...sets}
-              name="a"
-              options={alimentos}
-              required
-              { ...restProps }
-              { ...props }
-            />}
-          >
-            a
-          </SaFormGroup>
-        )}
-      />
-      {/* <MultiField
-        index={1}
-        {...sets}
-        value={data.a}
-        render={(restProps) => (
-          <SaFormGroup
-            // error={errors.a}
-            // visibleError={visibleErrors.a}
-            renderInput={props => <Select
-              className="form-control"
-              // {...gets('a')}
-              // {...sets}
-              name="a"
-              options={alimentos}
-              required
-              { ...restProps }
-            />}
-          >
-            a
-          </SaFormGroup>
-        )}
-      /> */}
+      {listAlimentos.map((value, index) => (
+        <MultiFieldItem
+          index={index}
+          {...sets}
+          value={data.alimentos}
+          error={errors.alimentos}
+          visibleError={visibleErrors.alimentos}
+          render={(multiFieldItemProps) => (
+            <SaFormGroup
+              error={multiFieldItemProps.error}
+              visibleError={multiFieldItemProps.visibleError}
+              renderInput={props => <Select
+                className="form-control"
+                name="alimentos"
+                options={alimentos}
+                required
+                { ...multiFieldItemProps }
+                { ...props }
+              />}
+            >
+              a
+            </SaFormGroup>
+          )}
+        />
+      ))}
       <Submit />
     </Form>
   )
 }
 
-export default WithForm(FormRefeicao, {
-  a: []
-})
+export default WithForm(FormRefeicao)

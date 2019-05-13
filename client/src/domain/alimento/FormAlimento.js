@@ -7,8 +7,17 @@ import SaFormGroup from '../../components/sa-formgroup/SaFormgroup';
 import { InputNumber } from '../../components';
 import Submit from '../../components/submit/submit.component';
 
-function FormAlimento({ setData, initialData, onSubmit, gets, sets, errors, visibleErrors, send }) {
-  const [_initialData, setInitialData] = useState({});
+const _initialData = {
+  nome: '',
+  calorias: '',
+  indiceGlicemico: '',
+  acidificacao: '',
+  inflamatorio: '',
+  descricao: ''
+};
+
+function FormAlimento({ data, setData, initialData : downInitialData, onSubmit, gets, sets, errors, visibleErrors, send }) {
+  const [initialData, setInitialData] = useState(_initialData);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -16,11 +25,13 @@ function FormAlimento({ setData, initialData, onSubmit, gets, sets, errors, visi
   }
 
   useEffect(() => {
-    if (initialData !== _initialData) {
-      setInitialData(initialData);
-      setData({...initialData});
+    if (downInitialData !== initialData) {
+      setInitialData(downInitialData);
+      setData({...downInitialData});
     }
   });
+
+  // Comment
 
   return (
     <Form onSubmit={handleSubmit} noValidate>
@@ -71,11 +82,4 @@ function FormAlimento({ setData, initialData, onSubmit, gets, sets, errors, visi
   )
 }
 
-export default WithForm(FormAlimento, {
-  nome: '',
-  calorias: '',
-  indiceGlicemico: '',
-  acidificacao: '',
-  inflamatorio: '',
-  descricao: ''
-})
+export default WithForm(FormAlimento, _initialData)

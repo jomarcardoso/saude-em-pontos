@@ -7,6 +7,7 @@ import { getDisplayName } from '../../utils/react';
  * @param {object} initialData
  */
 export default function WithForm(WrappedComponent, initialData) {
+
   class Form extends Component {
     constructor(props) {
       super(props);
@@ -90,6 +91,7 @@ export default function WithForm(WrappedComponent, initialData) {
     }
 
     _handleData = (data) => {
+      console.log(data);
       this.setState({ data });
     }
 
@@ -120,6 +122,8 @@ export default function WithForm(WrappedComponent, initialData) {
         submittingForm,
         visibleErrors
       } = this.state;
+
+
 
       return (
         <WrappedComponent
