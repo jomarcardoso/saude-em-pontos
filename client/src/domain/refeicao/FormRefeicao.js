@@ -42,8 +42,6 @@ function FormRefeicao({
     });
   }, []);
 
-  console.log(data)
-
   const listAlimentos = data.alimentos || [''];
 
   return (
@@ -55,20 +53,28 @@ function FormRefeicao({
           value={data.alimentos}
           error={errors.alimentos}
           visibleError={visibleErrors.alimentos}
-          render={(multiFieldItemProps) => (
+          render={({ addBelow, deleteCurrent, ...multiFieldItemProps }) => (
             <SaFormGroup
               error={multiFieldItemProps.error}
               visibleError={multiFieldItemProps.visibleError}
-              renderInput={props => <Select
-                className="form-control"
-                name="alimentos"
-                options={alimentos}
-                required
-                { ...multiFieldItemProps }
-                { ...props }
-              />}
+              renderInput={props => (
+                <div className="input-group">
+                  <Select
+                    className="form-control"
+                    name="alimentos"
+                    options={alimentos}
+                    required
+                    { ...multiFieldItemProps }
+                    { ...props }
+                  />
+                  <div className="input-group-append">
+                    <button className="btn btn-outline-secondary" onClick={() => addBelow('alimentos')} type="button"><i className="fas fa-plus"></i></button>
+                    <button className="btn btn-outline-secondary" onClick={() => deleteCurrent('alimentos')} type="button"><i className="fas fa-trash-alt"></i></button>
+                  </div>
+                </div>
+              )}
             >
-              a
+              Alimento {index + 1}
             </SaFormGroup>
           )}
         />

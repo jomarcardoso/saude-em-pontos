@@ -1,11 +1,12 @@
 import React from 'react';
+import { addOneAfter, removeOne } from '../../utils/array';
 
 export default function MultiFieldItem({
   render,
   index,
-  error: errors = [],
-  value: values = [],
-  visibleError: visibleErrors = [],
+  error: errors = [''],
+  value: values = [''],
+  visibleError: visibleErrors = [''],
   setDataByName: setDatasByName,
   setErrorByName: setErrorsByName,
   setShowErrorByName: setShowErrorsByName,
@@ -32,8 +33,18 @@ export default function MultiFieldItem({
     arrayShowErrors[index] = newShowError;
     setShowErrorsByName(name, arrayShowErrors);
   }
-debugger
+
+  function addBelow(name) {
+    setDatasByName(name, addOneAfter('', index, values));
+  }
+
+  function deleteCurrent(name) {
+    setDatasByName(name, removeOne(index, values, { atLeastOne: true }));
+  }
+
   return render({
+    addBelow,
+    deleteCurrent,
     visibleError,
     error,
     value,

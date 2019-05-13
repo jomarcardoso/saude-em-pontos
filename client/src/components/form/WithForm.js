@@ -91,7 +91,6 @@ export default function WithForm(WrappedComponent, initialData) {
     }
 
     _handleData = (data) => {
-      console.log(data);
       this.setState({ data });
     }
 
