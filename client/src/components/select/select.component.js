@@ -17,8 +17,18 @@ _render.bind.propTypes = {
   value: PropTypes.string.isRequired
 };
 
-export default function Select({ options, render, ...props }) {
+export default function Select({ value, setDataByName, options, render, ...props }) {
   const _requiredOptions = [emptyOptionAttributes, ...options];
+
+  let _setDataByName = setDataByName;
+  let _value = value;
+
+  if (options[0] && typeof options[0].value === 'number') {
+    _value = String(value)
+    _setDataByName = (name, newValue) => {
+      setDataByName(name, Number(newValue));
+    }
+  }
 
   function _renderSelect(restProps) {
     return (
@@ -29,7 +39,7 @@ export default function Select({ options, render, ...props }) {
   }
 
   return (
-    <Field render={_renderSelect} {...props} />
+    <Field setDataByName={_setDataByName} value={_value} render={_renderSelect} {...props} />
   );
 }
 

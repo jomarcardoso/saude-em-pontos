@@ -13,9 +13,9 @@ export default function Field({
   visibleError,
   invalidMessage,
   invalidMessageEmptyField,
-  setAShowError,
-  setAnError,
-  setAData,
+  setShowErrorByName,
+  setErrorByName,
+  setDataByName,
   noValidate,
   render,
   ...props
@@ -23,11 +23,11 @@ export default function Field({
   const { name } = props;
 
   function _hideError() {
-    if (isFunction(setAShowError) && visibleError) setAShowError(name, false);
+    if (isFunction(setShowErrorByName) && visibleError) setShowErrorByName(name, false);
   }
 
   function _showError() {
-    if (isFunction(setAShowError) && !visibleError) setAShowError(name, true);
+    if (isFunction(setShowErrorByName) && !visibleError) setShowErrorByName(name, true);
   }
 
   function _toggleShowError() {
@@ -50,19 +50,19 @@ export default function Field({
   }
 
   function _setEmptyMessageValidation() {
-    if (error !== invalidMessageEmptyField && isFunction(setAnError)) {
-      setAnError(name, invalidMessageEmptyField);
+    if (error !== invalidMessageEmptyField && isFunction(setErrorByName)) {
+      setErrorByName(name, invalidMessageEmptyField);
     }
   }
 
   function _setInvalidMessageValidation() {
     if (invalidMessage !== error) {
-      if (isFunction(setAnError)) setAnError(name, invalidMessage);
+      if (isFunction(setErrorByName)) setErrorByName(name, invalidMessage);
     }
   }
 
   function _removeMessageValidation() {
-    if (error && isFunction(setAnError)) setAnError(name, '');
+    if (error && isFunction(setErrorByName)) setErrorByName(name, '');
   }
 
   function _validate() {
@@ -90,7 +90,7 @@ export default function Field({
     if (isFunction(onChange)) onChange(e);
     const { value } = e.target;
 
-    if (isFunction(setAData)) setAData(name, value);
+    if (isFunction(setDataByName)) setDataByName(name, value);
   }
 
   useEffect(_validate);

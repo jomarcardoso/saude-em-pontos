@@ -11,7 +11,7 @@ export default function InputNumber({
   invalidMessage,
   invalidMessageAbove,
   invalidMessageBelow,
-  setAData,
+  setDataByName,
   value,
   ...props
 }) {
@@ -29,7 +29,7 @@ export default function InputNumber({
   return (
     <Input
       invalidMessage={_invalidMessage}
-      setAData={(newName, newValue) => setAData(newName, numberUnmask(newValue))}
+      setDataByName={(newName, newValue) => setDataByName(newName, numberUnmask(newValue))}
       value={numberMask(value)}
       {...props}
     />

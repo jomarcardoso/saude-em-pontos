@@ -13,27 +13,27 @@ export default function SaInput({
   error,
   visibleError,
   invalidMessage,
-  setAShowError,
-  setAnError,
-  setAData,
+  setShowErrorByName,
+  setErrorByName,
+  setDataByName,
   ...props
 }) {
   function _hideError() {
     const { name } = props;
-    if (isFunction(setAShowError) && visibleError) setAShowError(name, false);
+    if (isFunction(setShowErrorByName) && visibleError) setShowErrorByName(name, false);
   }
 
   function _toggleShowError() {
     const { name } = props;
 
-    if (!isFunction(setAShowError)) return;
+    if (!isFunction(setShowErrorByName)) return;
 
     if (error) {
-      if (!visibleError) setAShowError(name, true);
+      if (!visibleError) setShowErrorByName(name, true);
       return;
     }
 
-    if (visibleError) setAShowError(name, false);
+    if (visibleError) setShowErrorByName(name, false);
   }
 
   function _handleKeyPress(e) {
@@ -54,8 +54,8 @@ export default function SaInput({
   function _setEmptyMessageValidation() {
     const { name } = props;
 
-    if (error !== messageEmptyField && isFunction(setAnError)) {
-      setAnError(name, messageEmptyField);
+    if (error !== messageEmptyField && isFunction(setErrorByName)) {
+      setErrorByName(name, messageEmptyField);
     }
   }
 
@@ -63,14 +63,14 @@ export default function SaInput({
     const { name } = props;
 
     if (invalidMessage !== error) {
-      if (isFunction(setAnError)) setAnError(name, invalidMessage);
+      if (isFunction(setErrorByName)) setErrorByName(name, invalidMessage);
     }
   }
 
   function _removeMessageValidation() {
     const { name } = props;
 
-    if (error && isFunction(setAnError)) setAnError(name, '');
+    if (error && isFunction(setErrorByName)) setErrorByName(name, '');
   }
 
   function _validate() {
@@ -101,7 +101,7 @@ export default function SaInput({
     if (isFunction(onChange)) onChange(e);
     const { name, value } = e.target;
 
-    if (isFunction(setAData)) setAData(name, value);
+    if (isFunction(setDataByName)) setDataByName(name, value);
   }
 
   useEffect(() => {

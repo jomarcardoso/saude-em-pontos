@@ -21,27 +21,27 @@ export default function WithForm(WrappedComponent, initialData) {
 
     get sets() {
       return {
-        setAnError: this._setAnError,
-        setAShowError: this._setAShowError,
-        setAData: this._setAData
+        setErrorByName: this._setErrorByName,
+        setShowErrorByName: this._setShowErrorByName,
+        setDataByName: this._setDataByName
       };
     }
 
-    _setAShowError = (name, show) => {
+    _setShowErrorByName = (name, show) => {
       const { visibleErrors } = this.state;
 
       visibleErrors[name] = show;
       this._handleShowErrors(visibleErrors);
     }
 
-    _setAnError = (name, errorMessage) => {
+    _setErrorByName = (name, errorMessage) => {
       const { errors } = this.state;
 
       errors[name] = errorMessage;
       this._handleErrors(errors);
     }
 
-    _setAData = (name, value) => {
+    _setDataByName = (name, value) => {
       const { data } = this.state;
 
       data[name] = value;
@@ -104,7 +104,7 @@ export default function WithForm(WrappedComponent, initialData) {
     _showAllErrors() {
       const { errors } = this.state;
       Object.entries(errors).forEach(([name, errorMessage]) => {
-        this._setAShowError(name, Boolean(errorMessage));
+        this._setShowErrorByName(name, Boolean(errorMessage));
       });
     }
 
@@ -127,10 +127,10 @@ export default function WithForm(WrappedComponent, initialData) {
           data={data}
           errors={errors}
           visibleErrors={visibleErrors}
-          setAData={this._setAData}
+          setDataByName={this._setDataByName}
           onSubmit={this._handleSubmit}
-          setAnError={this._setAnError}
-          setAShowError={this._setAShowError}
+          setErrorByName={this._setErrorByName}
+          setShowErrorByName={this._setShowErrorByName}
           setData={this._handleData}
           gets={this._gets}
           sets={this.sets}
