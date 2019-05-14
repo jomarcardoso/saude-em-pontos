@@ -50,32 +50,57 @@ function FormRefeicao({
         <MultiFieldItem
           index={index}
           {...sets}
-          value={data.alimentos}
-          error={errors.alimentos}
-          visibleError={visibleErrors.alimentos}
-          render={({ addBelow, deleteCurrent, ...multiFieldItemProps }) => (
-            <SaFormGroup
-              error={multiFieldItemProps.error}
-              visibleError={multiFieldItemProps.visibleError}
-              renderInput={props => (
-                <div className="input-group">
-                  <Select
-                    className="form-control"
-                    name="alimentos"
-                    options={alimentos}
-                    required
-                    { ...multiFieldItemProps }
-                    { ...props }
-                  />
-                  <div className="input-group-append">
-                    <button className="btn btn-outline-secondary" onClick={() => addBelow('alimentos')} type="button"><i className="fas fa-plus"></i></button>
-                    <button className="btn btn-outline-secondary" onClick={() => deleteCurrent('alimentos')} type="button"><i className="fas fa-trash-alt"></i></button>
-                  </div>
-                </div>
+          value={data.alimentoQuantidades}
+          error={errors.alimentoQuantidades}
+          visibleError={visibleErrors.alimentoQuantidades}
+          render={({ addBelow : addBelowQuantity, deleteCurrent : deleteCurrentQuantity, ...multiFieldItemQuantityProps }) => (
+            <MultiFieldItem
+              index={index}
+              {...sets}
+              value={data.alimentos}
+              error={errors.alimentos}
+              visibleError={visibleErrors.alimentos}
+              render={({ addBelow, deleteCurrent, ...multiFieldItemProps }) => (
+                <SaFormGroup
+                  error={multiFieldItemProps.error}
+                  visibleError={multiFieldItemProps.visibleError}
+                  renderInput={props => (
+                    <div className="w-100">
+                      <div>
+                        <div className="input-group">
+                          <InputNumber
+                            className="form-control"
+                            name="alimentoQuantidades"
+                            required
+                            { ...multiFieldItemQuantityProps }
+                          />
+                          <div className="input-group-append">
+                            <button className="btn btn-outline-secondary" onClick={() => {
+                              addBelow('alimentos')
+                              addBelowQuantity('alimentoQuantidades') }} type="button"><i className="fas fa-plus"></i></button>
+                            <button className="btn btn-outline-secondary" onClick={() => {
+                              deleteCurrent('alimentos')
+                              deleteCurrentQuantity('alimentoQuantidades') }} type="button"><i className="fas fa-trash-alt"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <Select
+                          className="form-control"
+                          name="alimentos"
+                          options={alimentos}
+                          required
+                          { ...multiFieldItemProps }
+                          { ...props }
+                        />
+                      </div>
+                    </div>
+                  )}
+                >
+                  Alimento {index + 1}
+                </SaFormGroup>
               )}
-            >
-              Alimento {index + 1}
-            </SaFormGroup>
+            />
           )}
         />
       ))}
