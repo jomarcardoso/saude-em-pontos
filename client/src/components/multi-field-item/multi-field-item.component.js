@@ -1,4 +1,3 @@
-import React from 'react';
 import { addOneAfter, removeOne } from '../../utils/array';
 
 export default function MultiFieldItem({
@@ -16,20 +15,20 @@ export default function MultiFieldItem({
   const error = errors[index];
   const visibleError = visibleErrors[index];
 
-  function setDataByName(name, newValue)  {
-    let arrayValues = [...values];
+  function setDataByName(name, newValue) {
+    const arrayValues = [...values];
     arrayValues[index] = newValue;
     setDatasByName(name, arrayValues);
   }
 
-  function setErrorByName(name, newError)  {
-    let arrayErrors = [...errors];
+  function setErrorByName(name, newError) {
+    const arrayErrors = [...errors];
     arrayErrors[index] = newError;
     setErrorsByName(name, arrayErrors);
   }
 
-  function setShowErrorByName(name, newShowError)  {
-    let arrayShowErrors = [...visibleErrors];
+  function setShowErrorByName(name, newShowError) {
+    const arrayShowErrors = [...visibleErrors];
     arrayShowErrors[index] = newShowError;
     setShowErrorsByName(name, arrayShowErrors);
   }

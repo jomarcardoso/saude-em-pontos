@@ -7,6 +7,7 @@ import Input from '../../components/input/Input';
 import SaFormGroup from '../../components/sa-formgroup/SaFormgroup';
 import { InputNumber, Select, MultiFieldItem } from '../../components';
 import Submit from '../../components/submit/submit.component';
+import CompositeField from '../../components/composite-field/composite-field.component';
 
 function FormRefeicao({
   setData,
@@ -47,51 +48,70 @@ function FormRefeicao({
   return (
     <Form onSubmit={handleSubmit} noValidate>
       {listAlimentos.map((value, index) => (
-        <MultiFieldItem
+          <MultiFieldItem
           index={index}
           {...sets}
-          value={data.alimentoQuantidades}
-          error={errors.alimentoQuantidades}
-          visibleError={visibleErrors.alimentoQuantidades}
-          render={({ addBelow : addBelowQuantity, deleteCurrent : deleteCurrentQuantity, ...multiFieldItemQuantityProps }) => (
-            <MultiFieldItem
-              index={index}
-              {...sets}
-              value={data.alimentos}
-              error={errors.alimentos}
-              visibleError={visibleErrors.alimentos}
-              render={({ addBelow, deleteCurrent, ...multiFieldItemProps }) => (
+          value={data.alimentosQuantidades}
+          error={errors.alimentosQuantidades}
+          visibleError={visibleErrors.alimentosQuantidades}
+          render={({ addBelow, deleteCurrent, ...multiFieldItemProps }) => (
+            <CompositeField
+              {...multiFieldItemProps}
+              name="alimentosQuantidades"
+              render={({
+                value,
+                error,
+                visibleError,
+                ...compositeFieldProps
+              }) => (
                 <SaFormGroup
                   error={multiFieldItemProps.error}
                   visibleError={multiFieldItemProps.visibleError}
-                  renderInput={props => (
+                  renderInput={formGroupProps => (
                     <div className="w-100">
                       <div>
                         <div className="input-group">
                           <InputNumber
+                            value={value.quantidade}
+                            error={error.quantidade}
+                            visibleError={visibleError.quantidade}
                             className="form-control"
-                            name="alimentoQuantidades"
+                            name="quantidade"
+                            { ...compositeFieldProps }
                             required
-                            { ...multiFieldItemQuantityProps }
                           />
                           <div className="input-group-append">
-                            <button className="btn btn-outline-secondary" onClick={() => {
-                              addBelow('alimentos')
-                              addBelowQuantity('alimentoQuantidades') }} type="button"><i className="fas fa-plus"></i></button>
-                            <button className="btn btn-outline-secondary" onClick={() => {
-                              deleteCurrent('alimentos')
-                              deleteCurrentQuantity('alimentoQuantidades') }} type="button"><i className="fas fa-trash-alt"></i></button>
+                            <button
+                              className="btn btn-outline-secondary"
+                              onClick={() => {
+                                addBelow('alimentos')
+                              }}
+                              type="button"
+                            >
+                              <i className="fas fa-plus"></i>
+                            </button>
+                            <button
+                              className="btn btn-outline-secondary"
+                              onClick={() => {
+                                deleteCurrent('alimentos')
+                              }}
+                              type="button"
+                            >
+                              <i className="fas fa-trash-alt"></i>
+                            </button>
                           </div>
                         </div>
                       </div>
                       <div>
                         <Select
+                          value={value.alimento}
+                          error={error.alimento}
+                          visibleError={visibleError.alimento}
                           className="form-control"
-                          name="alimentos"
+                          name="alimento"
                           options={alimentos}
                           required
-                          { ...multiFieldItemProps }
-                          { ...props }
+                          { ...compositeFieldProps }
                         />
                       </div>
                     </div>

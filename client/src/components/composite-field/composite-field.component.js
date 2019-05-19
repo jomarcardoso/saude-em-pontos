@@ -9,8 +9,10 @@ export default function CompositeField({
   shape,
   ...props
 }) {
+  const { value } = props;
+
   function _setDataByName(newName, newValue) {
-    setDataByName(name, { [newName]: newValue });
+    setDataByName(name, { ...value, [newName]: newValue });
   }
 
   function _setErrorByName(newName, newError) {
@@ -25,7 +27,7 @@ export default function CompositeField({
 
   return render({
     setDataByName: _setDataByName,
-    setErrorByName: _setErrorByName,
+    // setErrorByName: _setErrorByName,
     setShowErrorByName: _setShowErrorByName,
     ...props
   });
