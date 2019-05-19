@@ -43,7 +43,7 @@ function FormRefeicao({
     });
   }, []);
 
-  const listAlimentos = data.alimentos || [''];
+  const listAlimentos = data.alimentosQuantidades || [{ alimento: '', quantidade: '' }];
 
   return (
     <Form onSubmit={handleSubmit} noValidate>
@@ -84,7 +84,7 @@ function FormRefeicao({
                             <button
                               className="btn btn-outline-secondary"
                               onClick={() => {
-                                addBelow('alimentos')
+                                addBelow('alimentosQuantidades')
                               }}
                               type="button"
                             >
@@ -93,7 +93,7 @@ function FormRefeicao({
                             <button
                               className="btn btn-outline-secondary"
                               onClick={() => {
-                                deleteCurrent('alimentos')
+                                deleteCurrent('alimentosQuantidades')
                               }}
                               type="button"
                             >

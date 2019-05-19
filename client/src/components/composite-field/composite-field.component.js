@@ -9,21 +9,19 @@ export default function CompositeField({
   shape,
   ...props
 }) {
-  const { value } = props;
+  const { value, error, visibleError } = props;
 
   function _setDataByName(newName, newValue) {
     setDataByName(name, { ...value, [newName]: newValue });
   }
 
   function _setErrorByName(newName, newError) {
-    setErrorByName(name, { [newName]: newError });
+    setErrorByName(name, { ...error, [newName]: newError });
   }
 
   function _setShowErrorByName(newName, newVisibleError) {
-    setShowErrorByName(name, { [newName]: newVisibleError });
+    setShowErrorByName(name, { ...visibleError, [newName]: newVisibleError });
   }
-
-  debugger;
 
   return render({
     setDataByName: _setDataByName,

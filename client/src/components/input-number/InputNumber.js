@@ -26,9 +26,6 @@ export default function InputNumber({
     _invalidMessage = invalidMessageBelow(min);
   }
 
-  console.log(props)
-  debugger
-
   return (
     <Input
       invalidMessage={_invalidMessage}
