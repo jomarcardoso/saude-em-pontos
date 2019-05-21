@@ -35,12 +35,11 @@ public class RefeicaoController {
         return ResponseEntity.ok().body(category);
     }
 
-    //    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> insert(@RequestBody Refeicao category) {
-        category = refeicaoService.insert(category);
+    public ResponseEntity<Void> insert(@RequestBody Refeicao refeicao) {
+        refeicao = refeicaoService.insert(refeicao);
 
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(category.getId()).toUri();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(refeicao.getId()).toUri();
 
         return ResponseEntity.created(uri).build();
     }

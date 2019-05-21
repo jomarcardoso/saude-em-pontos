@@ -17,6 +17,7 @@ function FormRefeicao({
   errors,
   visibleErrors,
   sets,
+  gets,
   send
 })
   {
@@ -47,6 +48,13 @@ function FormRefeicao({
 
   return (
     <Form onSubmit={handleSubmit} noValidate>
+      <SaFormGroup
+        error={errors.nome}
+        visibleError={visibleErrors.nome}
+        renderInput={props => <Input {...gets('nome')} {...sets} required {...props} />}
+      >
+        Nome*
+      </SaFormGroup>
       {listAlimentos.map((value, index) => (
           <MultiFieldItem
           index={index}
@@ -104,11 +112,11 @@ function FormRefeicao({
                       </div>
                       <div>
                         <Select
-                          value={value.alimento}
-                          error={error.alimento}
-                          visibleError={visibleError.alimento}
+                          value={value.alimento_id}
+                          error={error.alimento_id}
+                          visibleError={visibleError.alimento_id}
                           className="form-control"
-                          name="alimento"
+                          name="alimento_id"
                           options={alimentos}
                           required
                           { ...compositeFieldProps }

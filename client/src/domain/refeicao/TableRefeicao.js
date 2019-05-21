@@ -2,10 +2,11 @@ import React from 'react';
 import TableDomain from '../../components/table-domain/TableDomain';
 
 export default function TableRefeicao({ list, ...props }) {
+  console.log(list)
   return (
     <TableDomain
-      columns={['Nome', 'Calorias']}
-      list = {list.map(item => ({ column1: item.nome, column2: item.calorias, ...item }))}
+      columns={['Nome', 'Horário']}
+      list = {list.map(item => ({ column1: item.nome, column2: new Date(item.horario).toUTCString(), ...item }))}
       {...props}
     />
   )

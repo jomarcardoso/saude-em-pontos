@@ -24,9 +24,9 @@ public class Refeicao implements Serializable {
     @OneToMany(mappedBy = "refeicao")
     private List<RefeicaoAlimento> alimentosQuantidades = new ArrayList<>();
 
-    @ManyToOne
-    @JoinColumn(name = "refeicao_id")
-    private Usuario usuario;
+//    @ManyToOne
+//    @JoinColumn(name = "refeicao_id")
+//    private Usuario usuario;
 
-    private Date horario;
+    private Date horario = new Date();
 }

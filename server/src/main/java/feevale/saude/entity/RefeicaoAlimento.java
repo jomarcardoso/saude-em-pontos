@@ -13,13 +13,14 @@ import java.io.Serializable;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@IdClass(RefeicaoAlimento.class)
 public class RefeicaoAlimento implements Serializable {
 
     private static final long serialVersionUID = 834275497859028056L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Integer id;
 
     @Id
     @ManyToOne
