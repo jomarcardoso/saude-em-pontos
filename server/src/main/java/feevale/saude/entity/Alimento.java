@@ -2,11 +2,10 @@ package feevale.saude.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,4 +26,7 @@ public class Alimento implements Serializable {
     private Double acidificacao;
     private Double inflamatorio;
     private String descricao;
+
+    @OneToMany(mappedBy = "alimento")
+    private List<RefeicaoAlimento> alimentosQuantidades = new ArrayList<>();
 }

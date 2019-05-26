@@ -1,5 +1,6 @@
 package feevale.saude.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,18 +19,20 @@ public class RefeicaoAlimento implements Serializable {
 
     private static final long serialVersionUID = 834275497859028056L;
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Id
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "refeicao_id", referencedColumnName = "id")
+    @JoinColumn
     private Refeicao refeicao;
 
     @Id
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "alimento_id", referencedColumnName = "id")
+    @JoinColumn
     private Alimento alimento;
 
     private Double quantidade;

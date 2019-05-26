@@ -21,11 +21,12 @@ public class RefeicaoController {
     private RefeicaoService refeicaoService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<RefeicaoDTO>> find() {
+    public ResponseEntity<List<Refeicao>> find() {
         List<Refeicao> refeicaoList = refeicaoService.findAll();
         List<RefeicaoDTO> refeicaoDTOS = refeicaoList.stream().map(cl -> new RefeicaoDTO(cl)).collect(Collectors.toList());
 
-        return ResponseEntity.ok().body(refeicaoDTOS);
+//        return ResponseEntity.ok().body(refeicaoDTOS);
+        return ResponseEntity.ok().body(refeicaoList);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
