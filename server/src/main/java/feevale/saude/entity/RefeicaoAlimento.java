@@ -30,7 +30,6 @@ public class RefeicaoAlimento implements Serializable {
     private Refeicao refeicao;
 
     @Id
-    @JsonIgnore
     @ManyToOne
     @JoinColumn
     private Alimento alimento;

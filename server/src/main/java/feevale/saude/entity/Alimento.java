@@ -1,5 +1,6 @@
 package feevale.saude.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -27,6 +28,7 @@ public class Alimento implements Serializable {
     private Double inflamatorio;
     private String descricao;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "alimento")
     private List<RefeicaoAlimento> alimentosQuantidades = new ArrayList<>();
 }

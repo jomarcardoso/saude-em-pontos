@@ -30,9 +30,17 @@ function FormRefeicao({
   }
 
   useEffect(() => {
-    if (initialData !== _initialData) {
+    if (Object.entries(initialData).length && initialData !== _initialData) {
+      const internalData = {
+        ...initialData,
+        alimentosQuantidades: initialData.alimentosQuantidades.map((alimentosQuantidades) => ({
+          ...alimentosQuantidades,
+          alimento: alimentosQuantidades.alimento.id
+        }))
+      }
       setInitialData(initialData);
-      setData({...initialData});
+      setData({...internalData});
+      console.log('initialData', internalData)
     }
   });
 
@@ -112,11 +120,11 @@ function FormRefeicao({
                       </div>
                       <div>
                         <Select
-                          value={value.alimento_id}
-                          error={error.alimento_id}
-                          visibleError={visibleError.alimento_id}
+                          value={value.alimento}
+                          error={error.alimento}
+                          visibleError={visibleError.alimento}
                           className="form-control"
-                          name="alimento_id"
+                          name="alimento"
                           options={alimentos}
                           required
                           { ...compositeFieldProps }
