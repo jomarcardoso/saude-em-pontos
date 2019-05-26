@@ -26,21 +26,33 @@ function FormRefeicao({
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit().then(send).catch(result => console.log('catch', result));
+    onSubmit()
+      .then((_data) => {
+        const toSend = {
+          ..._data,
+          alimentosQuantidades: _data.alimentosQuantidades.map((alimentoQuantidade) => ({
+            ...alimentoQuantidade,
+            alimento: {
+              id: alimentoQuantidade.alimento
+            }
+          }))
+        }
+        send(toSend);
+      })
+      .catch(result => console.log('catch', result));
   }
 
   useEffect(() => {
     if (Object.entries(initialData).length && initialData !== _initialData) {
       const internalData = {
         ...initialData,
-        alimentosQuantidades: initialData.alimentosQuantidades.map((alimentosQuantidades) => ({
-          ...alimentosQuantidades,
-          alimento: alimentosQuantidades.alimento.id
+        alimentosQuantidades: initialData.alimentosQuantidades.map((alimentoQuantidade) => ({
+          ...alimentoQuantidade,
+          alimento: alimentoQuantidade.alimento.id
         }))
       }
       setInitialData(initialData);
       setData({...internalData});
-      console.log('initialData', internalData)
     }
   });
 
