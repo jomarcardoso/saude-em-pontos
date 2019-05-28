@@ -25,13 +25,11 @@ public class RefeicaoAlimento implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-//    @JsonIgnore
     @ManyToOne
     @JoinColumn
     @JsonBackReference
     private Refeicao refeicao;
-
-//    @Id
+    
     @ManyToOne
     @JoinColumn
     private Alimento alimento;
