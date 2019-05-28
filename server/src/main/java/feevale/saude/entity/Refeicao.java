@@ -1,5 +1,7 @@
 package feevale.saude.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,6 +24,7 @@ public class Refeicao implements Serializable {
     private String nome;
 
     @OneToMany(mappedBy = "refeicao", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<RefeicaoAlimento> alimentosQuantidades = new ArrayList<>();
 
 //    @ManyToMany

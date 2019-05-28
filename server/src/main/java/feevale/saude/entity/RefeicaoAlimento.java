@@ -1,6 +1,8 @@
 package feevale.saude.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +16,7 @@ import java.io.Serializable;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@IdClass(RefeicaoAlimento.class)
+//@IdClass(RefeicaoAlimento.class)
 public class RefeicaoAlimento implements Serializable {
 
     private static final long serialVersionUID = 834275497859028056L;
@@ -23,13 +25,13 @@ public class RefeicaoAlimento implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Id
-    @JsonIgnore
+//    @JsonIgnore
     @ManyToOne
     @JoinColumn
+    @JsonBackReference
     private Refeicao refeicao;
 
-    @Id
+//    @Id
     @ManyToOne
     @JoinColumn
     private Alimento alimento;

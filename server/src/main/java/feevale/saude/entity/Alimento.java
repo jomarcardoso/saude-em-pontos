@@ -5,8 +5,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -27,8 +25,4 @@ public class Alimento implements Serializable {
     private Double acidificacao;
     private Double inflamatorio;
     private String descricao;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "alimento")
-    private List<RefeicaoAlimento> alimentosQuantidades = new ArrayList<>();
 }
