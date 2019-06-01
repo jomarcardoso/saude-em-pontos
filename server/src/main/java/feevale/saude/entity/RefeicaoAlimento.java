@@ -29,7 +29,7 @@ public class RefeicaoAlimento implements Serializable {
     @JoinColumn
     @JsonBackReference
     private Refeicao refeicao;
-    
+
     @ManyToOne
     @JoinColumn
     private Alimento alimento;

@@ -6,6 +6,7 @@ import { ReactComponent as FoodIcon } from '../../img/icons/refeicao.svg';
 import { ReactComponent as ExerciseIcon } from '../../img/icons/exercicio.svg';
 import { ReactComponent as ActivityIcon } from '../../img/icons/atividade-fisica.svg';
 import { ReactComponent as TypeActivityIcon } from '../../img/icons/tipo-atividade-fisica.svg';
+import { ReactComponent as HealtyIcon } from '../../img/icons/healthy.svg';
 
 export default function Menu() {
   return (
@@ -49,6 +50,14 @@ export default function Menu() {
               <TypeActivityIcon />
             </div>
             <h4 className="text-dark text-center mt-2">Tipo de atividade física</h4>
+          </Link>
+        </Col>
+        <Col xs="6" sm="4">
+          <Link to="/relatorio" className="p-3 pb-4 d-block">
+            <div className="px-4 py-1">
+              <HealtyIcon />
+            </div>
+            <h4 className="text-dark text-center mt-2">Relatório</h4>
           </Link>
         </Col>
       </Row>
