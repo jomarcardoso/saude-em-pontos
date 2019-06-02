@@ -23,6 +23,9 @@ public class Alimento implements Serializable {
     private Double calorias;
     private Double indiceGlicemico;
     private Double acidificacao;
-    private Double inflamatorio;
     private String descricao;
+
+    public Double getInflamatorio() {
+        return (this.getCalorias() * this.getIndiceGlicemico());
+    }
 }
