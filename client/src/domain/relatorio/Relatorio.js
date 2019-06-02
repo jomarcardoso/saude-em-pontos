@@ -7,7 +7,7 @@ function Relatorio({ send, form, handleEdit, handleDelete, table }) {
   return (
     <>
       <h3>Relatório</h3>
-      <div className="row">
+      <div className="row py-3">
         <div className="col">
           <div className="card">
             <div className="card-header">
@@ -45,8 +45,8 @@ function Relatorio({ send, form, handleEdit, handleDelete, table }) {
           </div>
         </div>
       </div>
-      <p className="Relatorio-dica lead text-center px-3 py-3 mx-auto my-3">
-        {table.dica || 'situação estranha, não tenho o que dizer'}
+      <p className="Relatorio-dica lead text-center px-3 py-3 mx-auto">
+        {table.dica || '...nada a declarar por enquanto'}
       </p>
     </>
   )
