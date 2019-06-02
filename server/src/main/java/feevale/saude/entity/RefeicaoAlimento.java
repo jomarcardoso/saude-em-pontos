@@ -36,7 +36,15 @@ public class RefeicaoAlimento implements Serializable {
 
     private Double quantidade;
 
-    public Double calculaCaloriasTotal() {
+    public Double somaCalorias() {
         return (this.getAlimento().getCalorias() * this.getQuantidade());
+    }
+
+    public Double somaAcidificacao() {
+        return (this.getAlimento().getAcidificacao() * this.getQuantidade());
+    }
+
+    public Double somaInflamatorio() {
+       return (this.getAlimento().getInflamatorio() * this.getQuantidade());
     }
 }

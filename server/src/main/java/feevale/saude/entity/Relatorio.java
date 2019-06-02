@@ -36,27 +36,23 @@ public class Relatorio {
         this.refeicoes = refeicoes;
     }
 
-
 //    @Override
-    public Double calculaCaloriasTotal() {
-        return this.refeicoes.stream().map(Refeicao::calculaCaloriasTotal).reduce(0.0, (subtotal, element) -> subtotal + element);
+    private Double somaCalorias() {
+        return this.refeicoes.stream().map(Refeicao::somaCalorias).reduce(0.0, (subtotal, element) -> subtotal + element);
     }
 
-//    @Override
-//    public Double somaAcidificacaoDosAlimentos(List<RefeicaoAlimento> alimentosQuantidades) {
-//        return alimentosQuantidades.stream().map(Alimento::getAcidificacao).reduce(0.0, (subtotal, element) -> subtotal + element);
-//    }
-//
-//    @Override
-//    public Double somaInflamatorioDosAlimentos(List<Alimento> alimentos) {
-//        return alimentos.stream().map(Alimento::getInflamatorio).reduce(0.0, (subtotal, element) -> subtotal + element);
-//    }
-//
-//    @Override
+    private Double somaAcidificacao() {
+        return this.refeicoes.stream().map(Refeicao::somaAcidificacao).reduce(0.0, (subtotal, element) -> subtotal + element);
+    }
+
+    private Double somaInflamatorio() {
+        return this.refeicoes.stream().map(Refeicao::somaInflamatorio).reduce(0.0, (subtotal, element) -> subtotal + element);
+    }
+
     public void gerarRelatorio() {
-//        this.setAcidificacao(this.somaAcidificacaoDosAlimentos(this.alimentosQuantidades));
-        this.setCalorias(this.calculaCaloriasTotal());
-//        this.setInflamatorio(this.somaInflamatorioDosAlimentos(this.alimentosQuantidades));
+        this.setAcidificacao(this.somaAcidificacao());
+        this.setCalorias(this.somaCalorias());
+        this.setInflamatorio(this.somaInflamatorio());
     }
 
 

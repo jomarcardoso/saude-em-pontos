@@ -40,7 +40,15 @@ public class Refeicao implements Serializable {
 
     private Date horario = new Date();
 
-    public Double calculaCaloriasTotal() {
-        return this.getAlimentosQuantidades().stream().map(RefeicaoAlimento::calculaCaloriasTotal).reduce(0.0, (subtotal, element) -> subtotal + element);
+    public Double somaCalorias() {
+        return this.getAlimentosQuantidades().stream().map(RefeicaoAlimento::somaCalorias).reduce(0.0, (subtotal, element) -> subtotal + element);
+    }
+
+    public Double somaAcidificacao() {
+        return this.getAlimentosQuantidades().stream().map(RefeicaoAlimento::somaAcidificacao).reduce(0.0, (subtotal, element) -> subtotal + element);
+    }
+
+    public Double somaInflamatorio() {
+        return this.getAlimentosQuantidades().stream().map(RefeicaoAlimento::somaInflamatorio).reduce(0.0, (subtotal, element) -> subtotal + element);
     }
 }
