@@ -28,30 +28,30 @@ export default function Menu() {
             <h4 className="text-dark text-center mt-2">Refeição</h4>
           </Link>
         </Col>
-        <Col xs="6" sm="4">
+        {/* <Col xs="6" sm="4">
           <Link to="/exercicio" className="p-3 pb-4 d-block">
             <div className="px-4 py-1">
               <ExerciseIcon />
             </div>
             <h4 className="text-dark text-center mt-2">Exercício</h4>
           </Link>
-        </Col>
-        <Col xs="6" sm="4">
+        </Col> */}
+        {/* <Col xs="6" sm="4">
           <Link to="/atividade-fisica" className="p-3 pb-4 d-block">
             <div className="px-4 py-1">
               <ActivityIcon />
             </div>
             <h4 className="text-dark text-center mt-2">Atividade física</h4>
           </Link>
-        </Col>
-        <Col xs="6" sm="4">
+        </Col> */}
+        {/* <Col xs="6" sm="4">
           <Link to="/tipo-atividade-fisica" className="p-3 pb-4 d-block">
             <div className="px-4 py-1">
               <TypeActivityIcon />
             </div>
             <h4 className="text-dark text-center mt-2">Tipo de atividade física</h4>
           </Link>
-        </Col>
+        </Col> */}
         <Col xs="6" sm="4">
           <Link to="/relatorio" className="p-3 pb-4 d-block">
             <div className="px-4 py-1">

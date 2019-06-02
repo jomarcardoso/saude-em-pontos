@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 // import { CadastroAlimento } from './containers';
 import { SaHeader } from './components';
-import { Alimento, Menu, Refeicao } from './domain';
+import { Alimento, Menu, Refeicao, Relatorio } from './domain';
 import TipoAtividadeFisica from './domain/tipo-atividade-fisica/TipoAtividadeFisica';
 
 class App extends Component {
@@ -19,6 +19,7 @@ class App extends Component {
               <Route path="/alimento" component={Alimento} />
               <Route path="/refeicao" component={Refeicao} />
               <Route path="/tipo-atividade-fisica" component={TipoAtividadeFisica} />
+              <Route path="/relatorio" component={Relatorio} />
             </div>
           </main>
         </div>
