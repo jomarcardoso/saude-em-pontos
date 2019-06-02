@@ -12,7 +12,7 @@ import java.util.List;
 //@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Relatorio implements iRelatorio {
+public class Relatorio {
 //public class Relatorio implements Serializable {
 
 //    private static final long serialVersionUID = 2687565985384157705L;
@@ -25,37 +25,38 @@ public class Relatorio implements iRelatorio {
     public final static Double inflamatorioIdeal = 52.5;
     public final static Double caloriasIdeal = 2000.0;
 
-    private List<Alimento> alimentos = new ArrayList<>();
+    private List<Refeicao> refeicoes = new ArrayList<>();
 
     private String dica;
     private Double calorias;
     private Double acidificacao;
     private Double inflamatorio;
 
-    public Relatorio(List<Alimento> alimentos) {
-        this.alimentos = alimentos;
+    public Relatorio(List<Refeicao> refeicoes) {
+        this.refeicoes = refeicoes;
     }
 
-    @Override
-    public Double somaCaloriasDosAlimentos(List<Alimento> alimentos) {
-        return alimentos.stream().map(Alimento::getCalorias).reduce(0.0, (subtotal, element) -> subtotal + element);
+
+//    @Override
+    public Double calculaCaloriasTotal() {
+        return this.refeicoes.stream().map(Refeicao::calculaCaloriasTotal).reduce(0.0, (subtotal, element) -> subtotal + element);
     }
 
-    @Override
-    public Double somaAcidificacaoDosAlimentos(List<Alimento> alimentos) {
-        return alimentos.stream().map(Alimento::getAcidificacao).reduce(0.0, (subtotal, element) -> subtotal + element);
-    }
-
-    @Override
-    public Double somaInflamatorioDosAlimentos(List<Alimento> alimentos) {
-        return alimentos.stream().map(Alimento::getInflamatorio).reduce(0.0, (subtotal, element) -> subtotal + element);
-    }
-
-    @Override
+//    @Override
+//    public Double somaAcidificacaoDosAlimentos(List<RefeicaoAlimento> alimentosQuantidades) {
+//        return alimentosQuantidades.stream().map(Alimento::getAcidificacao).reduce(0.0, (subtotal, element) -> subtotal + element);
+//    }
+//
+//    @Override
+//    public Double somaInflamatorioDosAlimentos(List<Alimento> alimentos) {
+//        return alimentos.stream().map(Alimento::getInflamatorio).reduce(0.0, (subtotal, element) -> subtotal + element);
+//    }
+//
+//    @Override
     public void gerarRelatorio() {
-        this.setAcidificacao(this.somaAcidificacaoDosAlimentos(this.alimentos));
-        this.setCalorias(this.somaCaloriasDosAlimentos(this.alimentos));
-        this.setInflamatorio(this.somaInflamatorioDosAlimentos(this.alimentos));
+//        this.setAcidificacao(this.somaAcidificacaoDosAlimentos(this.alimentosQuantidades));
+        this.setCalorias(this.calculaCaloriasTotal());
+//        this.setInflamatorio(this.somaInflamatorioDosAlimentos(this.alimentosQuantidades));
     }
 
 

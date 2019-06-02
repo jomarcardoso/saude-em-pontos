@@ -35,4 +35,8 @@ public class RefeicaoAlimento implements Serializable {
     private Alimento alimento;
 
     private Double quantidade;
+
+    public Double calculaCaloriasTotal() {
+        return (this.getAlimento().getCalorias() * this.getQuantidade());
+    }
 }

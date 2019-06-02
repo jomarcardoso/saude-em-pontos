@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface iRelatorio {
-    public Double somaCaloriasDosAlimentos(List<Alimento> alimentos);
-    public Double somaAcidificacaoDosAlimentos(List<Alimento> alimentos);
-    public Double somaInflamatorioDosAlimentos(List<Alimento> alimentos);
+    public Double somaCaloriasDosAlimentos(List<RefeicaoAlimento> alimentosQuantidades);
+    public Double somaAcidificacaoDosAlimentos(List<RefeicaoAlimento> alimentosQuantidades);
+    public Double somaInflamatorioDosAlimentos(List<RefeicaoAlimento> alimentosQuantidades);
     public void gerarRelatorio();
 }

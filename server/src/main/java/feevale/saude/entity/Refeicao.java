@@ -39,4 +39,8 @@ public class Refeicao implements Serializable {
 //    private Usuario usuario;
 
     private Date horario = new Date();
+
+    public Double calculaCaloriasTotal() {
+        return this.getAlimentosQuantidades().stream().map(RefeicaoAlimento::calculaCaloriasTotal).reduce(0.0, (subtotal, element) -> subtotal + element);
+    }
 }
