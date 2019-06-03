@@ -13,5 +13,5 @@ insert into alimento values (12, 7, 220, "", 20, "azeitona");
 insert into alimento values (13, 3, 220, "", 14, "amendoim");
 insert into alimento values (14, 7, 24, "", 10, "alface");
 insert into alimento values (15, 2, 140, "", 0, "carne");
-insert into alimento values (16, 6, 0, "", 0, "água");
+insert into alimento values (16, 6, 0, "", 40, "água");
 

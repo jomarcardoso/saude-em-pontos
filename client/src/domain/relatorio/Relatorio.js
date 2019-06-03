@@ -30,7 +30,7 @@ function Relatorio({ send, form, handleEdit, handleDelete, table }) {
               Total inflamatório
             </div>
             <div className="card-body text-center">
-              <h2 className={`card-title ${'text-secondary'}`}>
+              <h2 className={`card-title ${table.inflamatorio < table.inflamatorioIdeal ? 'text-primary' : 'text-secondary'}`}>
                 {Math.floor(table.inflamatorio || 0)}
               </h2>
               <p className="card-text lead">
@@ -46,11 +46,11 @@ function Relatorio({ send, form, handleEdit, handleDelete, table }) {
               Total acidificação
             </div>
             <div className="card-body text-center">
-              <h2 className={`card-title ${'text-secondary'}`}>
-                {Math.floor(table.acidificacao || 0)}
+              <h2 className={`card-title ${table.acidificacao < 0 ? 'text-primary' : 'text-secondary'}`}>
+                {table.acidificacao && table.acidificacao.toFixed(2) || 0}
               </h2>
               <p className="card-text lead">
-                Esperado menos de {Math.floor(0)}
+                Esperado menos de 0
               </p>
             </div>
           </div>

@@ -21,11 +21,10 @@ public class Relatorio {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Integer id;
 
-    public final static Double ACIDIFICACAO_IDEAL = 4.0;
     public final static Double INFLAMATORIO_IDEAL = 700.0;
 
     public final Double caloriasIdeal = 2000.0;
-    public Double acidificacaoIdeal = 0.0;
+    public final Double acidificacaoIdeal = 0.0;
     public Double inflamatorioIdeal = 0.0;
 
     private List<Refeicao> refeicoes = new ArrayList<>();
@@ -60,10 +59,14 @@ public class Relatorio {
             if (this.getInflamatorio() < this.getInflamatorioIdeal()) {
                 resposta = resposta + ", e com saúde";
             } else {
-                resposta = resposta + ", porém a qualidade dos seus alimentos não é ideal, eles podem causar vários danos a longo prazo, a melhor forma de melhorar isso é evitando os alimentos de alto índice glicêmico e praticar exercícios para compensar";
+                resposta = resposta + ", porém a qualidade dos seus alimentos não é ideal, eles podem causar vários danos a longo prazo, a melhor forma de melhorar isso é evitando os alimentos de alto índice glicêmico e praticar exercícios";
             }
         } else {
-            resposta = resposta + "Cuidado com a injestão de calorias";
+            resposta = resposta + "Cuidado com a injestão de calorias.";
+        }
+
+        if (this.getAcidificacao() > this.getAcidificacaoIdeal()) {
+            resposta = resposta + " Beba mais água e ingira mais frutas e saladas.";
         }
 
         return resposta;
