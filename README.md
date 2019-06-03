@@ -5,3 +5,5 @@
 [calorias](https://www.sonutricao.com.br/conteudo/tabela/)
 
 [acidificacao](http://amicaru.com.br/ebooks/ebook173.pdf)
+
+[indiceGlicemico](http://www.medicinacomplementar.com.br/biblioteca/pdfs/Biomolecular/tabela-de-indice-glicemico-de-0-a-100.pdf)

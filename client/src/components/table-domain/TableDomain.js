@@ -22,9 +22,13 @@ export default function TableDomain({
           <tr key={item.id}>
             <td>{item.column1}</td>
             <td>{item.column2}</td>
-            <td>
-              <span onClick={() => onEdit(item)}>editar</span>
-              <span onClick={() => onDelete(item.id)}> excluir</span>
+            <td className="text-right">
+              <button className="btn btn-secondary" onClick={() => onEdit(item)} type="button">
+                <i className="fas fa-pencil-alt"></i>
+              </button>
+              <button className="btn btn-secondary ml-1" onClick={() => onDelete(item.id)} type="button">
+                <i className="fas fa-trash-alt"></i>
+              </button>
             </td>
           </tr>
         ))}

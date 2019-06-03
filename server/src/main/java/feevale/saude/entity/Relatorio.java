@@ -21,9 +21,12 @@ public class Relatorio {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Integer id;
 
-    public final static Double acidificacaoIdeal = 20.5;
-    public final static Double inflamatorioIdeal = 0.35;
-    public final static Double caloriasIdeal = 2000.0;
+    public final static Double ACIDIFICACAO_IDEAL = 4.0;
+    public final static Double INFLAMATORIO_IDEAL = 700.0;
+
+    public final Double caloriasIdeal = 2000.0;
+    public Double acidificacaoIdeal = 0.0;
+    public Double inflamatorioIdeal = 0.0;
 
     private List<Refeicao> refeicoes = new ArrayList<>();
 
@@ -49,16 +52,12 @@ public class Relatorio {
         return this.refeicoes.stream().map(Refeicao::somaInflamatorio).reduce(0.0, (subtotal, element) -> subtotal + element);
     }
 
-    private Double mediaInflamacaoPorCaloria() {
-        return this.getInflamatorio() / this.getCalorias();
-    }
-
     private String gerarDica() {
         String resposta = "";
-        if (this.getCalorias() < Relatorio.caloriasIdeal) {
+        if (this.getCalorias() < this.caloriasIdeal) {
             resposta = resposta + "Certamente você está controlando seu peso";
 
-            if (this.mediaInflamacaoPorCaloria() < Relatorio.inflamatorioIdeal) {
+            if (this.getInflamatorio() < this.getInflamatorioIdeal()) {
                 resposta = resposta + ", e com saúde";
             } else {
                 resposta = resposta + ", porém a qualidade dos seus alimentos não é ideal, eles podem causar vários danos a longo prazo, a melhor forma de melhorar isso é evitando os alimentos de alto índice glicêmico e praticar exercícios para compensar";
@@ -70,10 +69,16 @@ public class Relatorio {
         return resposta;
     }
 
+    private Double calculaInflamatorioIdeal() {
+        return (this.getCalorias() * Relatorio.INFLAMATORIO_IDEAL / this.getCaloriasIdeal());
+    }
+
+
     public void gerarRelatorio() {
         this.setAcidificacao(this.somaAcidificacao());
         this.setCalorias(this.somaCalorias());
         this.setInflamatorio(this.somaInflamatorio());
+        this.setInflamatorioIdeal(calculaInflamatorioIdeal());
         this.setDica(this.gerarDica());
     }
 

@@ -7,15 +7,11 @@ insert into alimento values (6, 6, 64, "", 36, "maçã");
 insert into alimento values (7, 5, 88, "", 51, "banana");
 insert into alimento values (8, 5, 43, "", 43, "laranja");
 insert into alimento values (9, 3, 60, "", 39, "leite");
+insert into alimento values (10, 4, 168, "", 0, "ovo");
+insert into alimento values (11, 5, 52, "", 59, "abacaxi");
+insert into alimento values (12, 7, 220, "", 20, "azeitona");
+insert into alimento values (13, 3, 220, "", 14, "amendoim");
+insert into alimento values (14, 7, 24, "", 10, "alface");
+insert into alimento values (15, 2, 140, "", 0, "carne");
+insert into alimento values (16, 6, 0, "", 0, "água");
 
-insert into refeicao (id, nome) values (1, "Bom Prato");
-insert into refeicao_alimento values (1, 100, 1, 1);
-insert into refeicao_alimento values (2, 100, 2, 1);
-
-insert into refeicao (id, nome) values (2, "Espetácolo");
-insert into refeicao_alimento values (3, 250, 3, 2);
-insert into refeicao_alimento values (4, 150, 5, 2);
-
-insert into refeicao (id, nome) values (3, "Cairú");
-insert into refeicao_alimento values (7, 180, 1, 3);
-insert into refeicao_alimento values (9, 200, 2, 3);
