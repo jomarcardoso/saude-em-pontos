@@ -57,7 +57,7 @@ public class Refeicao implements Serializable {
             .stream().map(RefeicaoAlimento::somaAcidificacao)
             .reduce(0.0, (subtotal, element) -> subtotal + element);
 
-        return (this.somaQuantidadeAlimentos() * 4);
+        return (totalAcidificacao / this.somaQuantidadeAlimentos());
     }
 
     public Double somaInflamatorio() {
