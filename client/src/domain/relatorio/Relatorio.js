@@ -88,15 +88,15 @@ function Relatorio({ send, form, handleEdit, handleDelete, table }) {
               <tfoot>
                 <tr>
                   <th>inflamatório</th>
-                  <th>{inflamatorio}</th>
+                  <th>{inflamatorio.toFixed(2) || 0}</th>
                 </tr>
                 <tr>
                   <th>acidificante</th>
-                  <th>{acidificacao}</th>
+                  <th>{acidificacao.toFixed(2) || 0}</th>
                 </tr>
                 <tr>
                   <th>calorias</th>
-                  <th>{calorias}</th>
+                  <th>{calorias.toFixed(2) || 0}</th>
                 </tr>
               </tfoot>
             </Table>
