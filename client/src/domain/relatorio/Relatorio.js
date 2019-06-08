@@ -29,7 +29,7 @@ function Relatorio({ send, form, handleEdit, handleDelete, table }) {
         <div className="col-sm-4 col-6">
           <div className="card text-center">
             <div className="card-header">
-              ACIDIFICATÓRIO
+              ACIDIFICATANTE
             </div>
             <div className="card-body">
               <h2 className={`card-title ${table.acidificacao < 0 ? 'text-primary' : 'text-secondary'}`}>
@@ -63,7 +63,7 @@ function Relatorio({ send, form, handleEdit, handleDelete, table }) {
       </p>
       <h4>Refeições</h4>
       {
-        refeicoes.map(({ nome, horario, alimentosQuantidades }) => (
+        refeicoes.map(({ nome, horario, alimentosQuantidades, inflamatorio, acidificacao, calorias }) => (
           <div className="my-3 py-2">
             <h5>{nome}</h5>
             <Table bordered size="sm">
@@ -85,6 +85,20 @@ function Relatorio({ send, form, handleEdit, handleDelete, table }) {
                   </tr>
                 ))}
               </tbody>
+              <tfoot>
+                <tr>
+                  <th>inflamatório</th>
+                  <th>{inflamatorio}</th>
+                </tr>
+                <tr>
+                  <th>acidificante</th>
+                  <th>{acidificacao}</th>
+                </tr>
+                <tr>
+                  <th>calorias</th>
+                  <th>{calorias}</th>
+                </tr>
+              </tfoot>
             </Table>
           </div>
         ))
