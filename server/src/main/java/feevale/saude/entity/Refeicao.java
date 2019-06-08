@@ -27,17 +27,6 @@ public class Refeicao implements Serializable {
     @JsonManagedReference
     private List<RefeicaoAlimento> alimentosQuantidades = new ArrayList<>();
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "course_like",
-//            joinColumns = @JoinColumn(name = "student_id"),
-//            inverseJoinColumns = @JoinColumn(name = "course_id"))
-//    List<Course> likedCourses;
-
-//    @ManyToOne
-//    @JoinColumn(name = "refeicao_id")
-//    private Usuario usuario;
-
     private Date horario = new Date();
 
 
