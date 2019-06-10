@@ -9,6 +9,13 @@ import { InputNumber, Select, MultiFieldItem } from '../../components';
 import Submit from '../../components/submit/submit.component';
 import CompositeField from '../../components/composite-field/composite-field.component';
 
+const _initialData_ = {
+  nome: '',
+  alimentosQuantidades: [
+    { alimento: 0, quantidade: 0 }
+  ]
+};
+
 function FormRefeicao({
   setData,
   initialData,
@@ -21,7 +28,7 @@ function FormRefeicao({
   send
 })
   {
-  const [_initialData, setInitialData] = useState({});
+  const [_initialData, setInitialData] = useState(_initialData_);
   const [alimentos, setAlimentos] = useState([]);
 
   function handleSubmit(e) {
@@ -43,6 +50,7 @@ function FormRefeicao({
   }
 
   useEffect(() => {
+    console.log(Object.entries(initialData).length, initialData !== _initialData);
     if (Object.entries(initialData).length && initialData !== _initialData) {
       const internalData = {
         ...initialData,
@@ -51,6 +59,7 @@ function FormRefeicao({
           alimento: alimentoQuantidade.alimento.id
         }))
       }
+      debugger;
       setInitialData(initialData);
       setData({...internalData});
     }

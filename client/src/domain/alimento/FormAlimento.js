@@ -66,9 +66,11 @@ function FormAlimento({ data, setData, initialData : downInitialData, onSubmit, 
       <SaFormGroup
         error={errors.inflamatorio}
         visibleError={visibleErrors.inflamatorio}
-        renderInput={props => <InputNumber {...gets('inflamatorio')} {...sets} required min={0} {...props} />}
+        renderInput={props => <InputNumber disabled {...gets('inflamatorio')} {...sets} required min={0} {...props} />}
       >
-        Inflamatório*
+        <span title="calculado após o cadastro">
+          Inflamatório
+        </span>
       </SaFormGroup>
       <SaFormGroup
         error={errors.descricao}
