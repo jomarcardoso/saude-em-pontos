@@ -67,8 +67,7 @@ export default function Field({
 
   function _validate() {
     if (noValidate) return;
-    const { required, value } = props;
-
+    const { required, value = '' } = props;
     const empty = isStringEmpty(value.trim());
 
     const requiredAndEmpty = required && empty;

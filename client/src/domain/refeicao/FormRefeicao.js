@@ -12,7 +12,7 @@ import CompositeField from '../../components/composite-field/composite-field.com
 const _initialData_ = {
   nome: '',
   alimentosQuantidades: [
-    { alimento: 0, quantidade: 0 }
+    { alimento: '0', quantidade: 0 }
   ]
 };
 
@@ -51,15 +51,18 @@ function FormRefeicao({
 
   useEffect(() => {
     console.log(Object.entries(initialData).length, initialData !== _initialData);
-    if (Object.entries(initialData).length && initialData !== _initialData) {
-      const internalData = {
-        ...initialData,
-        alimentosQuantidades: initialData.alimentosQuantidades.map((alimentoQuantidade) => ({
-          ...alimentoQuantidade,
-          alimento: alimentoQuantidade.alimento.id
-        }))
+    if (initialData !== _initialData) {
+      let internalData = _initialData_;
+      if (Object.entries(initialData).length) {
+        internalData = {
+          ...initialData,
+          alimentosQuantidades: initialData.alimentosQuantidades.map((alimentoQuantidade) => ({
+            ...alimentoQuantidade,
+            alimento: alimentoQuantidade.alimento.id
+          }))
+        }
       }
-      debugger;
+      // debugger;
       setInitialData(initialData);
       setData({...internalData});
     }
