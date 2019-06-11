@@ -7,3 +7,14 @@
 tfoot {
   background-color: rgba(0, 0, 0, 0.03);
 }
+
+@media (max-width: 420px) {
+  .card-header {
+    font-size: 15px;
+    padding: 0.75rem;
+  }
+
+  .lead {
+    font-size: 15px;
+  }
+}

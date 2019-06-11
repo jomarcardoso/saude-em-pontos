@@ -9,9 +9,9 @@ function Relatorio({ send, form, handleEdit, handleDelete, table }) {
   return (
     <>
       <h3>Relatório</h3>
-      <div className="row py-3">
+      <div className="row">
         <div className="col-sm-4 col-6">
-          <div className="card text-center">
+          <div className="card text-center my-3">
             <div className="card-header">
               INFLAMATÓRIO
             </div>
@@ -27,7 +27,7 @@ function Relatorio({ send, form, handleEdit, handleDelete, table }) {
           </div>
         </div>
         <div className="col-sm-4 col-6">
-          <div className="card text-center">
+          <div className="card text-center my-3">
             <div className="card-header">
               ACIDIFICATANTE
             </div>
@@ -42,7 +42,7 @@ function Relatorio({ send, form, handleEdit, handleDelete, table }) {
           </div>
         </div>
         <div className="col-sm-4 col-12">
-          <div className="card text-center">
+          <div className="card text-center my-3">
             <div className="card-header">
               CALORIAS
             </div>
